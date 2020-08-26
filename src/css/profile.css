@@ -1,0 +1,220 @@
+/*Contenedor padre formulario*/
+.formProfile {
+    width: 100vw;
+    height: 100vh;
+    margin: auto;
+    background: var(--color-blue);
+    overflow:hidden;
+  }
+  /* formulario Usuario*/
+  .formUser {
+    width: 60%;
+    height: 100vh;
+    float: right;
+    background: white;
+  }
+
+  .userContent {
+    padding: 10% 15% 0 15%;
+  }
+
+  .userContent input {
+    border: 2px solid gray;
+    border: 1px;
+    border: none;
+    margin: 5px;
+    margin: 10px;
+    width: 400px;
+    padding: 8px;
+    border-radius: 20px;
+  }
+
+  #terminos {
+    font-size: 12px;
+  }
+  
+  input#cbox1 {
+    width: 20px;
+    float: left;
+  }
+  
+  .userContent h2 {
+    font-family: 'Fredoka One', cursive;
+    font-size: 2em;
+    color: rgb(65, 61, 61);
+  }
+  
+  .userContent label {
+    font-family: 'Fredoka One', cursive;
+    color: rgb(128, 127, 127);
+  }
+  
+
+  /*formulario mascota*/
+  .photoImage {
+    float: left;
+    width: 40%;
+    height: 100vh;
+    background: url(../img/flame-order-complete.png) no-repeat;
+    background-size: 70%;
+    background-position: bottom;
+  }
+  
+  
+  .image-preview {
+    width: 150px;
+    height: 150px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin-left: 37%;
+    margin-top: 5%;
+  }
+  .default-image{
+    background: url(../img/profile-default.png);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .imagePreview {
+    display: none;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+  }
+  
+  .image-preview input {
+    display: none;
+  }
+  
+  .image-preview label {
+    width: 200px;
+    height: 50px;
+  }
+  
+  .petContent {
+    width: 100%;
+    display: inline-block;
+  
+  }
+  
+  .petInfo {
+    margin-top: 10%;
+    padding: 3%;
+    margin-left: 25%;
+  }
+  
+  .petInfo input {
+    border-radius: 15px;
+    margin-bottom: 6px;
+    padding: 10;
+    padding: 5px;
+    width: 200px;
+    border: 2px solid rgba(128, 128, 128, 0.644);
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  #profileBtn {
+    border: none;
+    background: var(--color-pink);
+    color: white;
+    width: 200px;
+    height: 30px;
+    border-radius: 15px;
+  }
+  
+  
+
+  input[type=radio] {
+    visibility: hidden;
+  }
+  label.radio {
+    cursor: pointer;
+    text-indent: 30px;
+    overflow: visible;
+    display: inline-block;
+    position: relative;
+    margin-bottom: 15px;
+  }
+  label.radio:before {
+    background: #3a57af;
+    content:'';
+    position: absolute;
+    top:2px;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+  }
+  label.radio:after {
+    opacity: 0;
+    content: '';
+    position: absolute;
+    width: 0.5em;
+    height: 0.25em;
+    background: transparent;
+    top: 7.5px;
+    left: 4.5px;
+    border: 3px solid #ffffff;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+  }
+  input[type=radio]:checked + label:after {
+    opacity: 1;
+  }
+  .gender {
+    align-items:center;
+    display:flex;
+    margin-bottom: 30px;
+  }
+ @media screen  and (max-width:768px){
+  .photoImage {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    clear: both;
+    width: 100%;
+    height: 30%;
+    background:none;
+}
+.petInfo {
+  float: left;
+  margin-top: 10%;
+  padding: 3%;
+  margin-left: 20%;
+}
+.formUser {
+  width: 100%;
+  height: 80vh;
+  /* float: right; */
+  background: white;
+}
+.petContent {
+  display: flex;
+}
+ }
+@media screen  and (max-width:425px){
+  .photoImage {
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+}
+.petForm {
+  margin-right: 20%;
+}
+.userContent h2 {
+  font-size: 1.5em;
+}
+.userContent input {
+  width: 200px;
+  padding: 5px;
+} 
+.image-preview {
+  width: 100px;
+  height: 100px;
+  margin-left: 15%;
+  margin-top: 10%;
+}
+}

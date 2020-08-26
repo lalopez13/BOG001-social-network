@@ -1,0 +1,34 @@
+/*
+Theme Name: SOULMATES
+Description: SPA
+Authors: Diana Gutierrez/Marcela Coronel/Laura Lopez
+*/
+
+/* || Typography */
+@import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap");
+
+/* || STYLE VIEWS*/
+@import "css/404.css";
+@import "css/dashboard.css";
+@import "css/home.css";
+@import "css/login.css";
+@import "css/profile.css";
+@import "css/signup.css";
+
+/* || General styles */
+
+:root {
+  --color-blue: #364c63;
+  --color-pink: #ff7851;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+button{
+  border:none;
+  cursor:pointer;
+}
+

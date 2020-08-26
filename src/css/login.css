@@ -1,0 +1,305 @@
+.containerView{
+    display: inline-block;
+    justify-content: center;
+    font-family: 'Fredoka One', cursive;
+    color: white;
+    align-items: center;
+    font-size: 1.3em;
+    width: 100%;
+    height:auto;
+  }
+    
+  .containerImgTitle{
+    height: auto;
+    width: 61%;
+    flex-direction: column;
+    margin-top: 13vh;
+    text-align: center; 
+  }
+    
+  .containerImgTitle img{
+    width: 85%;
+  }
+  
+  .titleSite {
+    width: 100%;
+  }
+  
+  .titleSite img{
+    width: 50%;
+  }
+  
+  .containerForms{
+    flex-flow: column nowrap;
+    background-color: var(--color-blue) ;
+    border-radius: 50px;
+    position: absolute;
+    width: 40%;
+    height: auto;
+    left: 58%;
+    top: 8%;
+    bottom: 8%;
+  }
+    
+  .containerForms h2{
+    font-weight: normal;
+    text-align: center;
+    margin-top: 15%;
+    font-size: 2.8em;
+    margin-bottom: 0;
+  }
+    
+  .form{
+    text-align: left;   
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    line-height: 3em;
+  }
+    
+  .inputsForm{
+    display: block;
+    justify-content: center;
+    margin: 20px 50px;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(0, 0, 0, 0.5);
+    }
+    
+  .form input{
+    border-radius: 35px;
+    width: 100%;
+    line-height: 1em;
+    box-sizing: border-box;
+    margin: auto;
+    text-align: center;
+    font-size: 1.3em;
+  }
+    
+  .inputForm{
+    border: 1px solid #525050;
+    padding: 5px;
+    background-color: rgb(255, 255, 255, 0.8);
+    font-size: 1em;
+    }
+    
+  .form label{
+    font-family: 'Roboto', sans-serif;
+    margin: 20px;
+    font-weight: bold;
+    color: #FFFFFF;
+    }
+  
+  .imgSignInMobile{
+    display: none;
+   
+  }
+  
+  .btnForm{
+    background-color: var(--color-pink);
+    width: 100%;
+    text-align: center;
+    border-radius: 30px;
+    line-height: 150%;
+    /* margin-top: 5%; */
+    color: #FFFFFF; 
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5em;
+  }
+  
+  .reset, .toggle{
+    font-family: 'Roboto', sans-serif;
+    margin: 5px 0;
+    text-align: center;
+  }
+  .reset a{
+   list-style: none;
+   text-decoration: none;
+   margin-bottom: 5px;
+   color: var(--color-pink)
+  }
+        
+  .toggle a{
+    list-style: none;
+    color: var(--color-pink);
+  }
+
+  #eye{
+    z-index: 1;
+    transform: translate(420px,-60px);
+    color: #364c63;
+  }
+
+  #userMessage {
+    color: #e4a058;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    margin: 0;
+  }
+
+
+
+  /* ||---Pantalla entre 1024 y 1365 */
+@media only screen and (min-width:1024px) and (max-width:1365px){  
+    
+.containerImgTitle img{
+    width: 90%;
+  }
+
+  .titleSite img{
+    width: 60%;
+  }
+
+  #eye{
+    transform: translate(280px,-60px);
+    
+  }
+
+
+  
+}
+
+/* |Tablet 768px| */
+@media screen  and (max-width:768px){
+    .containerView{
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .containerImgTitle{
+        width: 100%;
+        margin-top: 0;
+        z-index: 1;  
+      }
+     
+      .titleSite {
+        width: 80%;
+        margin-top: 3%;
+        /* margin: auto; */
+        text-align: center;
+      }
+    
+      .titleSite img{
+        width: 80%;
+      }
+      
+      .containerForms{
+        width: 94%;
+        position: absolute;
+        left: 3%;
+        top: 40%;
+        right: 3%;
+        bottom: 3%;
+      }
+      
+      .containerForms h2{
+        margin-top: 15%;
+        margin-bottom: 0;
+      }
+         
+      /* .imgSignInDesktop{
+        width: 100%;
+        position: absolute;
+        top: 5%;
+        transform: translateY(-70px);
+      } */
+    
+      .form{
+        line-height: 2em;
+      }
+    
+      .imgSignInDesktop {
+        width: 100%;
+        transform: translateY(-70px);
+      }
+
+      #eye{
+        transform: translate(460px,-45px);
+        
+      }
+
+}
+
+
+@media screen  and (max-width:425px){
+    .containerView{
+        display: block;
+        background-color:white ;
+        font-family: 'Roboto', sans-serif;
+        font-size: 1em;
+        color: var(--color-blue);
+        width: 100%;
+        height: 90vh;
+      }
+      
+      .imgSignInDesktop{
+        display: none;
+      }
+      .containerImgTitle img{
+        width: 50%;
+      }
+      
+      .imgSignInMobile{
+        width: 100%;
+        display: block;
+        top: 0;
+        position: absolute;
+      }
+      
+      .imgSignInMobile img{
+        width: 100%;
+      }
+      
+      .titleSite {
+        display: none;
+      }
+      
+      .containerForms{
+        display: block;
+        background-color:white;
+        width: 100%;
+        left: 0;
+        top: 45%;
+      }
+      
+      .containerForms h2{
+       display: none;
+      }
+      
+      .form{
+        line-height: 2.5em;
+      }
+      
+      .form input{
+        line-height: 1em;
+       }
+      
+       .form label{
+          color: var(--color-blue);
+        }
+      
+       .btnForm{
+        margin-top: 8%; 
+      }
+      
+      .reset a{
+        color: var(--color-blue);
+      }
+      
+      .toggle{
+        color: rgb(41, 40, 40);
+        margin-top: 5px;
+      }
+      
+      .toggle a{
+        color: var(--color-blue);
+      }
+      #eye{
+        transform: translate(250px,-40px);
+        
+      }
+
+}

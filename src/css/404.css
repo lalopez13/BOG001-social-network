@@ -1,0 +1,28 @@
+#error {
+    background: url(/src/img/404-desktop.jpg) no-repeat;
+    background-size: 70%;
+    background-position: center;
+    position: absolute;
+    width: 100vw;
+    height: 80vh;
+  }
+  @media screen  and (max-width:425px){
+  /* || 404 error */
+  #error-movil {
+    background: url(/src/img/404-mobile.jpg) no-repeat;
+    background-size: 120%;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  #error {
+    display: none;
+  }
+
+  nav {
+    display: none;
+  }
+
+
+  }

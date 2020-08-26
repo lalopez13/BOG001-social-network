@@ -1,0 +1,274 @@
+.SingUp-Container {
+  width: 100%;
+}
+.container-form {
+  background: var(--color-pink);
+  border-radius: 50px;
+  position: absolute;
+  width: 58%;
+  height: auto;
+  left: 2%;
+  top: 8%;
+  bottom: 8%;
+}
+
+.logo_singup {
+  width: 100%;
+  text-align: center;
+  margin: auto;
+}
+
+.container-form img {
+  margin-top: 2%;
+}
+
+.container-form h2 {
+  width: 100%;
+  justify-content: center;
+  align-content: center;
+  font-family: 'Fredoka One', cursive;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.8em;
+  text-align: center;
+  color: #ffffff;
+  padding-bottom: 1%;
+  text-transform: uppercase;
+}
+
+.form-Singup {
+  margin-top: -6%;
+}
+
+.form-Singup .form-SU-Desktop-tablet {
+  display: flex;
+  flex-direction: column;
+  margin-top: -3%;
+}
+
+.form-SU-movil {
+  display: none;
+}
+
+.form-Singup label {
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.4em;
+  line-height: 170%;
+  text-align: left;
+  color: #000000;
+  margin-left: 20%;
+}
+
+.form-Singup input[type='text'],
+[type='password'],
+[type='email'] {
+  background: rgba(255, 255, 255, 0.8);
+  filter: blur(0.5px);
+  border-radius: 25px;
+  margin-left: 18%;
+  margin-right: 18%;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+  line-height: 150%;
+}
+
+.form-Singup input[type='submit'] {
+  background: var(--color-blue);
+  border-radius: 30px;
+  line-height: 200%;
+  text-align: center;
+  margin-top: 5%;
+  margin-left: 18%;
+  margin-right: 18%;
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5em;
+}
+
+.form-Singup span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.form-Singup span p {
+  color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-style: Regular;
+  font-size: 1.5em;
+}
+
+.form-Singup span a {
+  color: var(--color-blue);
+  font-family: 'Roboto', sans-serif;
+  font-style: Regular;
+  font-size: 1.2em;
+  padding-left: 10px;
+}
+
+.bg-singup {
+  position: absolute;
+  width: 50%;
+  height: auto;
+  left: 50%;
+  top: 5%;
+  margin: auto;
+}
+
+.bg-singup img {
+  width: 100%;
+}
+
+.desktop-SU {
+  display: block;
+}
+
+.tablet-SU {
+  display: none;
+}
+
+.mobile-SU {
+  display: none;
+}
+
+#landscape {
+  display: none;
+  z-index: -100;
+}
+@media only screen and (min-width: 1024px) and (max-width: 1365px) {
+  .bg-singup {
+    top: 15%;
+  }
+  .bg-singup img {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .container-form {
+    width: auto;
+    bottom: 20%;
+    right: 5%;
+    left: 5%;
+  }
+
+  .bg-singup {
+    position: absolute;
+    width: 50%;
+    height: auto;
+    left: 53%;
+    top: 71.5%;
+  }
+
+  .form-Singup {
+    top: 1%;
+  }
+
+  .container-form h2 {
+    padding-bottom: 1px;
+  }
+
+  .desktop-SU {
+    display: none;
+  }
+
+  .tablet-SU {
+    display: block;
+  }
+
+  .mobile-SU {
+    display: none;
+  }
+}
+@media screen and (max-width: 425px) {
+  .container-form {
+    background: white;
+  }
+
+  .logo_singup {
+    display: none;
+  }
+
+  .container-form h2 {
+    width: 100%;
+    color: rgba(0, 0, 0, 0.6);
+    vertical-align: top;
+    text-transform: initial;
+  }
+
+  .form-Singup .form-SU-Desktop-tablet {
+    display: none;
+  }
+
+  .form-SU-movil {
+    display: block;
+    justify-content: center;
+  }
+
+  .form-Singup input[type='text'],
+  [type='password'],
+  [type='email'] {
+    background: rgba(255, 255, 255, 0.8);
+    filter: blur(0.1px);
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    line-height: 150%;
+    text-align: left;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 1.5em;
+    margin-bottom: 10%;
+    text-indent: 10px;
+  }
+
+  .form-Singup input[type='submit'] {
+    background: var(--color-pink);
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    line-height: 200%;
+    margin-top: 5%;
+  }
+
+  .desktop-SU {
+    display: none;
+  }
+
+  .tablet-SU {
+    display: none;
+  }
+
+  .mobile-SU {
+    display: block;
+  }
+
+  .bg-singup {
+    left: 0;
+    top: 75.5%;
+  }
+
+  .bg-singup img {
+    width: 200%;
+  }
+
+  .form-Singup span p {
+    color: rgba(0, 0, 0, 0.6);
+  }
+
+  .form-Singup span a {
+    color: var(--color-blue);
+    font-size: 1em;
+    padding-left: 8px;
+  }
+}
