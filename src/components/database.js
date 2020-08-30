@@ -99,15 +99,9 @@ export function deletePostUserData(uid, idPost) {
 
 // Crear folder y guardar las imagenes
 export function imageStorage(folder, id, file) {
-  storage
+ return storage
     .ref(folder + id)
-    .put(file)
-    .then(() => {
-      console.log('File successfully upload!');
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    .put(file);
 }
 
 // Borrar las imagenes del storage
