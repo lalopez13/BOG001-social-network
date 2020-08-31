@@ -427,7 +427,7 @@ export default () => {
        
         })
     }
-    if(text != null || text != ""){
+    if(text != null && text != ""){
       let elementText = document.createTextNode(text);
       element.appendChild(elementText);
     }
