@@ -1,26 +1,14 @@
 import { addUsersData } from '../components/database.js';
-
 // references
 const auth = firebase.auth();
 const provider = new firebase.auth.GoogleAuthProvider();
-
 // Estado del usuario
-
 function userState() {
   auth.onAuthStateChanged((user) => {
     if (user) {
       const userId = user;
       localStorage.setItem('usuario', JSON.stringify(userId));
       // User is signed in.
-      console.log(userId);
-      // const displayName = user.displayName;
-      // const email = user.email;
-      // const emailVerified = user.emailVerified;
-      // console.log(user.emailVerified);
-      // const photoURL = user.photoURL;
-      // const isAnonymous = user.isAnonymous;
-      // const uid = user.uid;
-      // const providerData = user.providerData;
       console.log('usuario activo');
       // ...
     } else {
@@ -30,32 +18,30 @@ function userState() {
     }
   });
 }
-
 userState();
-
 // Crear un usuario nuevo
 export const createUsers = (email, password) => {
   auth
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
       console.log(cred.user);
+      sendEmail();
       //   return db.collection('userData').doc(cred.user.uid).set({
       // // return db.collection('userData').doc('usuario').set({
       //     Email: email,
       //     Password: password,
       //   });
-
       // console.log(cred.user);
       // console.log(db.collection('User').doc(cred.user.uid));
-
       // console.log('verificado');
     }).catch((error) => {
       // Handle Errors here.
       console.log(error.message);
+      const emailMessage = document.querySelector('#messageEmailSU');
+      emailMessage.innerHTML = error.message;
       // ...
     });
 };
-
 // Crear un usuario con google
 export const createUserswithGoogle = () => {
   auth
@@ -82,7 +68,6 @@ export const createUserswithGoogle = () => {
       // // ...
     });
 };
-
 // Log in usuario
 export const signInUsers = (email, password) => {
   auth
@@ -90,14 +75,13 @@ export const signInUsers = (email, password) => {
     .then((cred) => {
       console.log(cred.user);
       window.location.hash = '#/dashboard';
-      // alert('bienvenido');
     })
     .catch((error) => {
       console.log(error);
-      // alert('no estas registrado' + error);
+      const emailMessage = document.querySelector('#messageEmailLog');
+      emailMessage.innerHTML = 'Este usuario no esta Registrado';
     });
 };
-
 // Cerrar sesion usuario
 export const userSignOff = () => {
   auth
@@ -110,7 +94,6 @@ export const userSignOff = () => {
       console.log(error.message);
     });
 };
-
 // Recuperar contraseña usuario
 export const recoverPass = (email) =>{
   auth
@@ -122,4 +105,19 @@ export const recoverPass = (email) =>{
     .catch((error) => {
       console.log(error.message);
     });
+}
+// Enviar Email de Confirmación
+const sendEmail = () => {
+  var user = firebase.auth().currentUser;
+  user.sendEmailVerification()
+    .then(() => {
+      console.log('El correo se envio');
+      const overlay = document.querySelector('#overlay');
+      const popup = document.querySelector('#popup');
+      overlay.classList.add('active');
+      popup.classList.add('active');
+    })
+    .catch((error) => {
+      console.log(error.message);
+    })
 }

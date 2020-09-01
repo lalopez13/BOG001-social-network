@@ -21,7 +21,7 @@ export default () => {
             <form action="#" class="inputsForm" id="logInForm">
               <Label>EMAIL</br>
                 <input id="email" class="inputForm" type="email" placeholder="pepitoperez@gmail.com" required>
-                <span id="messagePass" class="messageEmail"></span>
+                <span id="messageEmailLog" class="messageEmail"></span>
               </Label><br />
               <Label>CONTRASEÑA</br>
                 <input id ="password" class="inputForm" type="password" placeholder="*********"  pattern=".{8,}" required>
@@ -93,7 +93,6 @@ export default () => {
     e.preventDefault();
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
-    
     signInUsers(email, password);
     logInForm.reset();
   });

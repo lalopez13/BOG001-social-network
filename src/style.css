@@ -9,6 +9,8 @@ Authors: Diana Gutierrez/Marcela Coronel/Laura Lopez
 @import url("./css/login.css");
 @import url("./css/signup.css");
 @import url("./css/404.css");
+@import url("./css/profile.css");
+@import url("./css/dashboard.css");
 
 /* || Typography */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap");
@@ -34,6 +36,10 @@ body {
 button{
   border: none;
   cursor: pointer;
+}
+
+input{
+  outline:none;
 }
     
 /*VISTA DISPOSITIVO CELULAR EN LANDSCAPE*/

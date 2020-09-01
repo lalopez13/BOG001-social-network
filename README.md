@@ -1,39 +1,51 @@
-# Creando una Red Social
+<p align="center">
+  <img src="https://github.com/lalopez13/BOG001-social-network/blob/Pruebafirebase/src/img/logo-BluePink.png" width="500" title="logo">
+</p>
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
-* [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
-* [6. Hacker edition](#6-hacker-edition)
-* [7. Entrega](#7-entrega)
-* [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
+* [1. Definición del producto](#1-Definición-del-producto)
+* [2. Historias de usuario](#2-Historias-de-usuario)
+* [3. Diseño de la Interfaz de usuario](#3-Diseño-de-la-Interfaz-de-Usuario)
+* [4. Objetivos de aprendezaje](#4-Objetivos-de-aprendizaje)
+* [5. Checklist](#5-checklist)
 
-## 1. Preámbulo
+***
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+# 1. Definición del producto
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
+SoulMates es una red social que tiene como objetivo conectar y crear una comunidad para personas que tienen mascotas y quieren compartir los momentos que viven cada dia con ellas.
 
-## 2. Resumen del proyecto
+En los ultimos años se ve la tendencia y la popularidad que tienen las fotos y videos de mascotas que se comparten en redes sociales hasta tienen perfiles propios, Soulmates tiene como objetivo crear un espacio  para este tipo de contenido donde personas que tienen el mismo amor y quieren compartir el dia a dia con su mascota lo puedan hacer en un espacio exclusivo para eso y tambien para generar una red de apoyo para adopcion y busqueda de mascotas.
 
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco), de la
-[Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
+Nuestro logotipo es una ficha de un rompecabezas porque como su nombre lo indica una mascota es nuestra alma gemela y es esa pieza que complementa nuestra vida.
 
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de
-acceso y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
+### Test de usabilidad 
+Se hicieron test en tres personas,de acuerdo a su feedback las opiniones fueron:
+1. La pagina era facil de usar, las opciones del menu eran claras e indicaban que se iban a encontrar en cada vista.
+2. Los formularios eran sencillos y la opcion de mostrar la contraseña les parecio adecuada ya que muchas veces ocurren errores a la hora de digitar, el tamaño de los inputs era muy grande.
+
+### Feedback de diseño de la aplicacion en usuarios
+
+De acuerdo con la interaccion que tuvieron algunos usuarios con nuestra aplicaciónn estas fueron algunas de las observaciones mas importantes:
+
+1. Dejar la barra de navegacion del home con nombres en español.
+2. El tamaño de los inputs y labels de los formularios.
+3. Tener unidad entre las tipografias y tamaños de los labels de los formularios.
+
+
+## Diseño de la aplicación
+El diseño de SoulMates esta basado en la simplicidad y ofrecer al usuario una interfaz amigable y que exprese por medio de las ilustraciones y los colores, calidez y generar un interes a nuestro publico objetivo para que se registren en la aplicacion.
+
+### Prototipos de baja fidelidad
+
+
+
+
+### Prototipos de alta fidelidad
+El prototipo de alta fidelidad se desarrollo en FIGMA.
+LINK: <a>https://www.figma.com/file/W0kaayI4LwgkSGhGawMgom/SOULMATES?node-id=0%3A1</a>
+
 
 ## 3. Objetivos de aprendizaje
 
@@ -105,33 +117,7 @@ El objetivo principal de aprendizaje de este proyecto es construir una
 * [ ] Aplicar los principios de diseño visual (contraste, alineación, jerarquía)
 * [ ] Planear y ejecutar tests de usabilidad.
 
-## 4. Consideraciones generales
 
-* Este proyecto se debe trabajar en equipos de tres.
-
-* La lógica del proyecto debe estar implementada completamente en JavaScript
-  (ES6+), HTML y CSS :smiley:. Para este proyecto **no está permitido** utilizar
-  _frameworks_ o librerías de CSS y JS.
-
-* La división y organización del trabajo debe permitir, sin excepciones, que
-  **cada integrante** del equipo practique el aprendizaje de todo lo involucrado
-  en **cada historia**. _No se dividan el trabajo como en una fábrica._
-  - ¿Hasta acá has avanzado en tus proyectos con cierta fluidez y sin mayores
-    problemas? Sé generosa con tus compañeras, permíteles aprender y practicar
-    sin restricciones, aunque tome un poco más de tiempo. Aproveha de
-    _coachearlas_, de hacer _pair programming_, una de las mejores maneras de
-    aprender es explicando verbalmente.
-
-  - ¿Se te está haciendo difícil y te cuesta un poco más avanzar? No te quedes
-    con las partes "fáciles" del proyecto, conversa, negocia, exige tu oportunidad
-    para practicar y aprender lo que se te hace más difícil.
-
-* Solamente pueden trabajar en una única historia por vez, no pueden avanzar a
-  la siguiente sin haber completado la anterior. La historia se completa cuando
-  se cumplen **todos** sus Criterios de Aceptación + **toda** su Definición
-  de Terminado.
-
-Para comenzar tendrás que hacer un _fork_ y _clonar_ este repositorio.
 
 ## 5. Criterios de aceptación mínimos del proyecto
 
@@ -252,72 +238,6 @@ tus H.U.:
   diseño.
 * Hacer sesiones de _testing de usabilidad_ con el producto en HTML.
 
-## 6. Hacker edition
 
-Las secciones llamadas _Hacker Edition_ son **opcionales**. Si **terminaste**
-con todo lo anterior y te queda tiempo, intenta completarlas. Así podrás
-profundizar y/o ejercitar más sobre los objetivos de aprendizaje del proyecto.
 
-* Permite crear posts con imágenes.
-* Permite buscar usuarios, agregar y eliminar "amigos".
-* Permite definir la privacidad de los _posts_ (público o solamente para amigos).
-* Permite ver su muro de cualquier usuario "no-amigo" (solamente los
-  posts _públicos_).
-* Permite comentar o responder una publicación.
-* Permite editar perfil.
 
-## 7. Entrega
-
-El proyecto será _entregado_ subiendo tu código a GitHub (`commit`/`push`) y la
-interfaz será desplegada usando GitHub pages u otro servicio de hosting que
-puedas haber encontrado en el camino.
-
-***
-
-## 8. Pistas, tips y Lecturas complementarias
-
-### Mobile first
-
-El concepto de [_mobile first_](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-hace referencia a un proceso de diseño y desarrollo donde partimos de cómo se ve
-y cómo funciona la aplicación en un dispositivo móvil primero, y más adelante se
-ve como adaptar la aplicación a pantallas progresivamente grandes y
-características específicas del entorno desktop. Esto es en contraposición al
-modelo tradicional, donde primero se diseñaban los websites (o webapps) para
-desktop y después se trataba de _arrugar_ el diseño para que entre en pantallas
-más chicas. La clave acá es asegurarse de que desde el principio diseñan usando
-la vista _responsive_ de las herramientas de desarrollador (developer tools) del
-navegador. De esa forma, partimos de cómo se ve y comporta la aplicación en una
-pantalla y entorno móvil.
-
-### Múltiples vistas
-
-En proyectos anteriores nuestras aplicaciones habían estado compuestas de una
-sola _vista_ principal (una sóla _página_). En este proyecto se introduce la
-necesidad de tener que dividir nuestra interfaz en varias _vistas_ o _páginas_
-y ofrecer una manera de navegar entre estas vistas. Este problema se puede
-afrontar de muchas maneras: con archivos HTML independientes (cada uno con su
-URL) y links tradicionales, manteniendo estado en memoria y rederizando
-condicionalmente (sin refrescar la página), [manipulando el historial del
-navegador](https://developer.mozilla.org/es/docs/DOM/Manipulando_el_historial_del_navegador)
-con [`window.history`](https://developer.mozilla.org/es/docs/Web/API/Window/history).
-En este proyecto te invitamos a explorar opciones y decidir una opción
-de implementación.
-
-### Escritura de datos
-
-En los proyectos anteriores hemos consumido (leído) datos, pero todavía no
-habíamos escrito datos (salvar cambios, crear datos, borrar, ...). En este
-proyecto tendrás que crear (salvar) nuevos datos, así como leer, actualizar y
-modificar datos existentes. Estos datos se podrán guardar de forma remota
-usando [Firebase](https://firebase.google.com/).
-
-Otras:
-
-* [Modulos: Export](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/export)
-* [Modulos: Import](https://developer.mozilla.org/es/docs/Web/JavaScript/Referencia/Sentencias/import)
-* [Diseño web, responsive design y la importancia del mobile first - Media Click](https://www.mediaclick.es/blog/diseno-web-responsive-design-y-la-importancia-del-mobile-first/)
-* [Mobile First: el enfoque actual del diseño web móvil - 1and1](https://www.1and1.es/digitalguide/paginas-web/diseno-web/mobile-first-la-nueva-tendencia-del-diseno-web/)
-* [Mobile First - desarrolloweb.com](https://desarrolloweb.com/articulos/mobile-first-responsive.html)
-* [Mobile First - ZURB](https://zurb.com/word/mobile-first)
-* [Mobile First Is NOT Mobile Only - Nielsen Norman Group](https://www.nngroup.com/articles/mobile-first-not-mobile-only/)

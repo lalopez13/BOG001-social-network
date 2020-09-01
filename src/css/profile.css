@@ -1,0 +1,207 @@
+/* Container padre*/
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  
+  /* Contenedor imagen*/
+  .form-image {
+    margin-top: 3%;
+    /* transform: translateX(480px); */
+    transform: translateY(10%);
+    width: 100vw;
+    height: 100vh;
+    background-position: bottom;
+    background: url(../img/profile-form.svg) no-repeat;
+    background-size: 90%;
+    float: right;
+  }
+  .form-image-title {
+    transform: translateY(-50px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em;
+    font-family: 'Fredoka One', cursive;
+    color: rgb(82, 81, 81);
+  }
+  
+  /* Contenedor formulario*/
+  .form-user {
+    transform: translateX(250px);
+    /* float: right; */
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+  }
+  
+  .pet-form {
+    transform: translateX(-290px);
+    border-radius: 50px;
+    background: lavender;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+  }
+  
+  .logo {
+    background: url(../img/logo-BluePink.png) no-repeat;
+    background-size: 20%;
+  }
+  
+  .profile-header {
+    display: none;
+  }
+  
+  .pet-info input {
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.664);
+  }
+  
+  .pet-form label,
+  .userContent-title {
+    margin-bottom: 5px;
+    color: rgb(82, 81, 81);
+    font-family: 'Fredoka One', cursive;
+  }
+  
+  .btn-profile {
+    margin-bottom: 15%;
+    border-radius: 15px;
+    padding: 5px;
+    width: 100px;
+    background: #ff7851;
+    border: none;
+    color: white;
+  }
+  
+  /*image preview */
+  .image-preview {
+    margin: auto;
+    width: 100px;
+    height: 100px;
+    border: 2px solid gray;
+    border-radius: 50%;
+    margin-bottom: 20%;
+  }
+  
+  .default-image {
+    background: url(../img/profile-default.png);
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    z-index: 1;
+  }
+  
+  .userContent input {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 20px;
+    width: 100%;
+    border: 1px solid rgba(128, 128, 128, 0.664);
+  }
+  
+  .imagePreview {
+    display: none;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .image-preview input {
+    display: none;
+  }
+  
+  .image-preview label {
+    width: 200px;
+    height: 50px;
+  }
+  
+  /*user form*/
+  .userContent {
+    margin: 50px;
+  }
+  
+  input[type="radio"] {
+    width: 10px;
+  }
+  
+  input#cbox1 {
+    width: 20px;
+    float: left;
+  }
+  
+  label#terminos {
+    font-size: 0.6em;
+  }
+  
+  .type-pet {
+    margin-bottom: 10px;
+  }
+  
+  @media screen and (max-width:768px) {
+    .image-preview {
+      margin-top: 10%;
+  }
+  
+    .form-image {
+      display: none;
+    }
+  
+    .form-user {
+      background:url(../img/S1_Breakfast.jpg);
+      transform: translateX(0px);
+      display: block;
+      justify-content: center;
+    }
+  
+    .profile-header {
+      margin: 0;
+      height: 40px;
+      display: block;
+  
+    }
+    .profile-header h1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2em;
+      color: rgb(82, 81, 81);
+  }
+  
+    .pet-form {
+      transform: translateX(0px);
+      margin: 10%;
+      height: 80%;
+      width: 80%;
+    }
+  
+    .logo {
+      background: url(../img/logo-BluePink.png) no-repeat;
+      background-size: 20%;
+    }
+  
+  }
+  
+  @media screen and (max-width:425px) {
+  
+    .pet-form label,
+    h2 {
+      font-size: 0.8em;
+    }
+  
+    label#terminos {
+      font-size: 8px;
+    }
+  }
