@@ -1,45 +1,40 @@
 // referencia de los servicios de firebase
 const db = firebase.firestore();
 const storage = firebase.storage();
-
-// Almacenar en firestore y storage datos del perfil Usuario
-// FIRESTORE
+// -------FIRESTORE-------- //
+export function loadInfoUser(collection, uid) {
+  db
+    .collection(collection)
+    .doc(uid)
+    .get();
+}
 // Añadir los datos del perfil de usuario
 export async function addUsersData(dataUser, uid) {
-  try {
-    const userData = await db.collection('user').doc(uid).set(dataUser);
-    console.log(userData);
-  } catch (error) {
-    console.log('Error adding document: ', error);
-  }
+  await db
+    .collection('user')
+    .doc(uid)
+    .set(dataUser)
+    .then((doc) => {
+      console.log(doc.data());
+      console.log('Document successfully uploaded!');
+    })
+    .catch((error) => {
+      console.log('Error upload document: ', error);
+    });
 }
 // Añadir los datos de cada post a la coleccion del usuario
 export async function addPostUserData(uid, dataPost) {
-  try {
-    const userPostData = await db
-      .collection('user')
-      .doc(uid)
-      .collection('post')
-      .add(dataPost);
-    console.log(userPostData);
-  } catch (error) {
-    console.log('Error adding document: ', error);
-  }
-}
-// Editar los datos del post
-
-export function editPostUserData(uid, idPost) {
-  db.collection('user')
+  await db
+    .collection('user')
     .doc(uid)
     .collection('post')
-    .doc(idPost)
-    .get()
+    .add(dataPost)
     .then((doc) => {
       console.log(doc.data());
-      console.log('Document successfully edit!');
+      console.log('Document successfully uploaded!');
     })
     .catch((error) => {
-      console.log('Error editing document: ', error);
+      console.log('Error upload document: ', error);
     });
 }
 // Obtener los datos de la coleccion
@@ -69,16 +64,25 @@ export function deletePostUserData(uid, idPost) {
       console.log('Error removing document: ', error);
     });
 }
-
+// Aumenta el contador de Likes
+export async function likePost(currentUserId, postId, pushLike) {
+  const postRef = data.collection('post').doc(postId);
+  if (pushLike) {
+    postRef.update({
+      likes: firebase.firestore.FieldValue.arrayRemove(currentUserId),
+    });
+  } else {
+    postRef.update({
+      likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
+    });
+  }
+}
 // ------------------------STORAGE---------------------------------
 // Crear folder y guardar las imagenes
-export async function imageStorage(folder, id, file) {
-  try {
-    const storageRef = await storage.ref(folder + id).put(file);
-    console.log(storageRef);
-  } catch (error) {
-    console.log(error);
-  }
+export function imageStorage(folder, id, file) {
+  return storage
+    .ref(folder + id)
+    .put(file);
 }
 // Borrar las imagenes del storage
 export function deletePostImageData(folder) {

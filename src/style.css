@@ -10,7 +10,7 @@ Authors: Diana Gutierrez/Marcela Coronel/Laura Lopez
 @import url("./css/signup.css");
 @import url("./css/404.css");
 @import url("./css/profile.css");
-@import url("./css/dashboard.css");
+@import url("./css/postDashboard.css");
 
 /* || Typography */
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto&display=swap");
@@ -36,6 +36,7 @@ body {
 button{
   border: none;
   cursor: pointer;
+  outline:none;
 }
 
 input{
