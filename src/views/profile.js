@@ -1,61 +1,73 @@
-import { addUsersData } from '../components/database.js';
+import { addUsersData, imageStorage } from '../components/database.js';
+import { previewFiles } from '../lib/previewFiles.js';
 
 export default () => {
   const view = `
-  <div class="formProfile">
-  <form action="#" class="profileForm" id="profileForm">
-    <div class="photoImage">
 
-      <div class="petForm">
-        <div class="petContent">
+  <div class="main">
 
-          <div class="image-preview" id="containerPreview">
-            <img src="" alt="image-preview" class="imagePreview">
-            <input type="file" name="photoPet" id="profilePhoto" />
-            <div class="default-image"></div>
-            <label for="profilePhoto"><i class="fas fa-camera-retro"></i></label>
-          </div>
+  <section class="form-image">
+  <h1 class="form-image-title">Crea tu perfil</h1>
+  </section>
 
-          <div class="petInfo">
-            <label for="namePet">
-              <input id="namePet" class="petForm" type="text" placeholder="nombre mascota" required>
-            </label>
-            </br>
-            <label for="agePet">
-              <input id="agePet" class="petForm" type="number" placeholder="edad mascota" required>
-            </label>
-            </br>
-            <label for="breedPet">
-              <input id="breedPet" class="petForm" type="text" placeholder="raza mascota" required>
-            </label>
-            </br>
-            <label for="city">
-              <input id="city" class="petForm" type="text" placeholder="ciudad" required>
-            </label>
-          </div>
-      </div>
-    </div>
-  </div>
+  <section class="form-user">
+<div class="background-image"> 
+      <header class="profile-header">
+      <h1>Crea tu perfil</h1>
+      <div class="logo"></div>
+      </header>
+      <form action="#" class="profileForm" id="profileForm">
+      <div class="pet-form">
+              <div class="pet-content">
+                  <div class="image-preview" id="containerPreview">
+                    <img src="" alt="image-preview" class="imagePreview">
+                    <input type="file" name="photoPet" id="profilePhoto" />
+                    <div class="default-image"></div>
+                    <label for="profilePhoto"><i class="fas fa-camera-retro"></i></label>
+                  </div>
+                  <div class="pet-info">
+                    <label for="namePet">Nombre mascota</label>
+                    </br>
+                      <input id="namePet" class="petForm" type="text" placeholder="nombre mascota" required>
+                    
+                    </br>
+                    <label for="agePet">Edad mascota </label>
+                     </br>
+                      <input id="agePet" class="petForm" type="number" placeholder="edad mascota" required>
+                   
+                      </br>
+                    <label for="breedPet">Raza </label>
+                     </br>
+                      <input id="breedPet" class="petForm" type="text" placeholder="raza mascota" required>
+                      </br>
+                    <label for="city">Ciudad</label>
+                    </br>
+                      <input id="city" class="petForm" type="text" placeholder="ciudad" required>
+                      </br>
+                  </div>
+                  <br>
+                  <small class="message-alert"></small>
+                  <br>
+                <button id="next" class="btn-profile">siguiente</button>
+              </div>
+     
 
-      <div class="formUser">
-        <div class="userContent">
-          <h2>Mi humano es...</h2>
+      <div class="userContent" style="display:none">
+         <!-- <div class="userContent">-->
+          <h2 class="userContent-title">Mi humano es...</h2>
           <label>Nombre </label>
           <br>
           
             <input id="userName" type="text" placeholder="nombre" required>
-
-          
+          <br>
           <label>Teléfono </label>
           <br>
             <input id="userPhone" type="phone" placeholder="numero telefono" required>
-         
+            <br>
           <label>Fecha de nacimiento   </label>
           <br>
             <input id="userBirth" type="date" required>
-
-                  
-          <div class="gender">
+          <div class="type-pet">
           <label>Mascota</label> 
           <br>
     <input type="radio" value="dog" id="dog" name="pet" checked/>
@@ -65,17 +77,20 @@ export default () => {
     <input type="radio" value="other" id="other" name="pet" />
     <label for="other" class="radio">Otros</label>
     
-   </div> 
-       
-          
-          
+   </div>
             <label id="terminos"><input type="checkbox" id="cbox1" >*Al pertencer a la comunidad acepta amar y respetar a todos los animales.</label><br>
             <br>
-          <input type="submit" id="profileBtn" class="btnProfile" value="Crear perfil" />
+          <input type="submit" id="profileBtn" class="btn-profile" value="Crear perfil" />
           </div>
       </div>
   </form>
 </div>
+
+</div>
+  </section>
+
+  </div>
+
  `;
 
   // VARIABLES GLOBALES
@@ -100,50 +115,51 @@ export default () => {
 
   // PET INFORMATION
   const petName = divElement.querySelector('#namePet');
-  const petBreed = divElement.querySelector('#agePet');
-  const petAge = divElement.querySelector('#breedPet');
+  const petBreed = divElement.querySelector('#breedPet');
+  const petAge = divElement.querySelector('#agePet');
+  const petType = divElement.querySelector('input[name="pet"]:checked');
+  const messageEmptyInput = divElement.querySelector('.message-alert');
   const defaultImage = divElement.querySelector('.default-image');
+
+  // FORM VIEW
+  const petform = divElement.querySelector('.pet-content');
+  const userForm = divElement.querySelector('.userContent');
+  const nextButtonForm = divElement.querySelector('#next');
 
   // FUNCIONES
 
-  // FUNCION PREVIEW IMAGEN DE PERFIL
-  inputPhoto.addEventListener('change', () => {
-    const file = inputPhoto.files[0];
-    console.log(file);
-    if (file) {
-      const reader = new FileReader();
-      defaultImage.style.display = 'none';
-      imagePreview.style.display = 'block';
-      reader.addEventListener('load', () => {
-        // console.log(this) ;
-        imagePreview.setAttribute('src', reader.result);
-      });
-      reader.readAsDataURL(file);
-    } else {
-      defaultImage.style.display = null;
-      imagePreview.style.display = null;
-      imagePreview.setAttribute('src', '');
+  // FUNCION MOSTRAR VISTAS PERFIL Y VALIDAR INPUTS VACIOS PET FORM
+  nextButtonForm.addEventListener('click', (e) => {
+    console.log('click');
+    e.preventDefault();
+    // eslint-disable-next-line eqeqeq
+    if ((petName.value == '') || (petBreed.value == '') || (petAge.value == '') || (userCity.value == '') || (inputPhoto.value == ' ')) { // COMPRUEBA CAMPOS VACIOS
+      messageEmptyInput.innerHTML = '*Los campos no pueden quedar vacios';
+      return false;
     }
+    petform.style.display = 'none';
+    userForm.style.display = 'block';
+    return true;
   });
 
-  // FUNCION ENVIO DE FORMULARIO Y AGREGAR DATOS A FIRESTORE
-  const userex = JSON.parse(localStorage.getItem('usuario'));
-  const idex = userex.uid;
-  console.log(idex);
 
-  // userEmail.innerHTML = userex.email;
+  // FUNCION PREVIEW IMAGEN DE PERFIL
+
+  previewFiles(inputPhoto, defaultImage, imagePreview);
+
+  // FUNCION PARA ENVIAR LOS DATOS DEL FORMULARIO Y SUBIRLOS A FIRESTORE Y STORAGE
 
   formProfile.addEventListener('submit', (e) => {
     e.preventDefault();
     console.log('funciona');
-
-    window.location.hash = '#/dashboard';
-
-    // INFORMACION DEL USUARIO
-
+    // ID DEL USUARIO
+    const user = JSON.parse(localStorage.getItem('usuario'));
+    const id = user.uid;
+    console.log(id);
+    console.log(petType.value);
+    // INFORMACION DEL PERFIL PARA SUBIR A FIRESTORE
     const User = {
       Name: userName.value,
-      // Email: userex.email,
       Phone: userPhone.value,
       DateBirth: userBirth.value,
       City: userCity.value,
@@ -151,93 +167,34 @@ export default () => {
         PetName: petName.value,
         PetBreed: petBreed.value,
         PetAge: petAge.value,
+        PetType: petType.value,
       },
     };
 
-    // AGREGAR INFORMACION A FIRESTORE
-    const user = JSON.parse(localStorage.getItem('usuario'));
-    const id = user.uid;
-    console.log(id);
+    // SUBIR IMAGEN DE PERFIL A STORAGE
+    function uploadImage() {
+      const file = inputPhoto.files[0];
+      console.log(file);
+      const path = `user/${id}/`;
+      localStorage.setItem('pathStorage', path);
+      console.log(localStorage.getItem('pathStorage'));
+      imageStorage(`${path}/profile/`, id, file);
+    }
 
-    addUsersData(User, id);
+    // SUBIR INFORMACION A FIREBASE
+    function uploadInfo() {
+      uploadImage();
+      addUsersData(User, id).then(() => {
+        window.location.hash = '#/dashboard';
+      });
+    }
 
+    // LLAMAR LA FUNCION PARA SUBIR LA INFORMACION
+    uploadInfo();
+
+    // RESETEAR EL FORMULARIO
     formProfile.reset();
-    // userEmail.innerHTML = ' ';
   });
 
   return divElement;
 };
-
-// UPDATE DATA
-
-// updateBtn.addEventListener('click', (e) =>{
-//   e.preventDefault();
-//   const newData = {
-//     Phone: userPhone.value
-//   };
-//   dataRef.update(newData)
-// })
-
-// span class='default-image'><i class='fas fa-paw'></i></span
-
-//   dataRef.child(autoId).set({
-//     User: {
-//       Name: userName.value,
-//       Email: userEmail.value,
-//       Phone: userPhone.value,
-//       DateBirth: userBirth.value,
-//       City: userCity.value,
-//       Pet: {
-//         PetName: petName.value,
-//         PetBreed: petBreed.value,
-//         PetAge: petAge.value,
-//       },
-//     },
-//   })
-
-// Get a reference to the database service
-// const database = firebase.database();
-
-// Get a reference to the db service
-// let db = firebase.firestore();
-// db.settings({ timestampsInSnapshots: true });
-
-//   db.collection('Users').get().then((snapshot)=>{
-// console.log(snapshot.docs)
-// snapshot.docs.forEach(doc =>{
-//   console.log(doc.data())
-// })
-//   })
-// const User = {
-//   Name: userName.value,
-//   Email: userEmail.value,
-//   Phone: userPhone.value,
-//   DateBirth: userBirth.value,
-//   City: userCity.value,
-//   Pet: {
-//     PetName: petName.value,
-//     PetBreed: petBreed.value,
-//     PetAge: petAge.value,
-//   },
-// };
-// db.collection('Users')
-//   .add(User)
-//   .then(function (docRef) {
-//     console.log('Document written with ID: ', docRef.id);
-//   })
-//   .catch(function (error) {
-//     console.error('Error adding document: ', error);
-//   });
-//   Name: userName.value,
-//   Email: userEmail.value,
-//   Phone: userPhone.value,
-//   DateBirth: userBirth.value,
-//   City: userCity.value,
-//   Pet: {
-//     PetName: petName.value,
-//     PetBreed: petBreed.value,
-//     PetAge: petAge.value,
-// },
-
-// const dataRef = database.ref('users');
-// const autoId = dataRef.push().key;

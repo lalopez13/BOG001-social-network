@@ -15,7 +15,8 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve src/"
+    "start": "serve src/",
+    "deploy": "gh-pages -d src"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
@@ -27,11 +28,11 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.1.2",
     "htmlhint": "^0.11.0",
-    "jest": "^24.9.0",
+    "jest": "^24.8.0",
+    "mock-cloud-firestore": "^0.12.0",
     "regenerator-runtime": "^0.13.1",
     "serve": "^11.0.2",
     "stylelint": "^10.1.0",
     "stylelint-config-recommended": "^2.2.0"
-  },
-  "dependencies": {}
+  }
 }

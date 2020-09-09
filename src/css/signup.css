@@ -1,6 +1,10 @@
+/*VISTA MONITORES DE ESCRITORIO CON 1366PX O MAS*/
+/* || SingUp Page */
+
 .SingUp-Container {
   width: 100%;
 }
+
 .container-form {
   background: var(--color-pink);
   border-radius: 50px;
@@ -8,8 +12,8 @@
   width: 58%;
   height: auto;
   left: 2%;
-  top: 8%;
-  bottom: 8%;
+  top: 7%;
+  bottom: 7%;
 }
 
 .logo_singup {
@@ -19,77 +23,116 @@
 }
 
 .container-form img {
-  margin-top: 2%;
+ margin-top: 1%;
 }
 
-.container-form h2 {
+.form-Singup h2 {
   width: 100%;
   justify-content: center;
   align-content: center;
   font-family: 'Fredoka One', cursive;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.8em;
+  font-size: 2.5em;
   text-align: center;
-  color: #ffffff;
-  padding-bottom: 1%;
+  color: #FFFFFF;
   text-transform: uppercase;
+  margin-top: -3%;
 }
 
 .form-Singup {
-  margin-top: -6%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 0;
 }
 
 .form-Singup .form-SU-Desktop-tablet {
   display: flex;
   flex-direction: column;
-  margin-top: -3%;
+  width: 70%;
+  line-height: 4vh;
 }
-
-.form-SU-movil {
-  display: none;
-}
-
-.form-Singup label {
+  
+.form-SU-Desktop-tablet label {
   font-family: 'Roboto', sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 1.4em;
-  line-height: 170%;
-  text-align: left;
+  font-style: bold;
+  font-weight: 600;
+  font-size: 1em;
   color: #000000;
-  margin-left: 20%;
+  width: 100%;
+  line-height: 4vh;
+  margin-top:-2%
 }
 
-.form-Singup input[type='text'],
-[type='password'],
-[type='email'] {
+.form-Singup input[type="text"],
+[type="password"],
+[type="email"] {
+  width: 100%;
   background: rgba(255, 255, 255, 0.8);
   filter: blur(0.5px);
   border-radius: 25px;
-  margin-left: 18%;
-  margin-right: 18%;
   text-align: center;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5em;
-  line-height: 150%;
+  font-size: 1em;
+  line-height: 5vh;
+  border: none;
 }
 
-.form-Singup input[type='submit'] {
+.form-Singup input[type="submit"] {
   background: var(--color-blue);
+  width: 100%;
   border-radius: 30px;
-  line-height: 200%;
+  line-height: 5.2vh;
   text-align: center;
-  margin-top: 5%;
-  margin-left: 18%;
-  margin-right: 18%;
-  color: #ffffff;
+  color: #FFFFFF; 
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5em;
+  font-size: 1.3em;
+  cursor: pointer;
+  border: none;
+}
+
+.messageEmailSU{
+  color: var(--color-blue);
+  font-size: 0.7em;
+  margin: 15px auto;
+  height: 10px;
+}
+
+.messagePassSU{
+  color: var(--color-blue);
+  font-size: 0.7em;
+  margin: 15px auto;
+  height: 10px;
+}
+
+.signupGoogle p{
+  width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;   
+}
+
+.btnGoogle {
+  width: 100%;
+  display: inline-flex;
+  border-radius: 30px;
+  line-height: 1vh;
+}
+
+.btnGoogle img{
+  width: 15%;
+}
+
+.btnGoogle p {
+  color: var(--color-blue);
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;  
 }
 
 .form-Singup span {
@@ -101,31 +144,29 @@
 }
 
 .form-Singup span p {
-  color: #ffffff;
+  color: #FFFFFF;
   font-family: 'Roboto', sans-serif;
   font-style: Regular;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
-.form-Singup span a {
+.SingUp-Container .form-Singup span a {
   color: var(--color-blue);
   font-family: 'Roboto', sans-serif;
   font-style: Regular;
-  font-size: 1.2em;
+  font-size: 1em;
   padding-left: 10px;
 }
 
 .bg-singup {
-  position: absolute;
-  width: 50%;
-  height: auto;
-  left: 50%;
-  top: 5%;
-  margin: auto;
+  position: relative;
+  width: 95vh;
+  left: 48%;
+  margin-top:1%;
 }
 
 .bg-singup img {
-  width: 100%;
+  width: 95vh;
 }
 
 .desktop-SU {
@@ -144,131 +185,217 @@
   display: none;
   z-index: -100;
 }
-@media only screen and (min-width: 1024px) and (max-width: 1365px) {
-  .bg-singup {
-    top: 15%;
-  }
-  .bg-singup img {
-    width: 100%;
-  }
+
+.eye {
+  position: absolute;
+  font-size: 1.8em;
+  margin-left: 65%;
+  margin-top: -4.3vh;
+  color: var(--color-blue);
+  cursor: pointer;
+  z-index: 1;
 }
 
-@media screen and (max-width: 768px) {
-  .container-form {
-    width: auto;
-    bottom: 20%;
-    right: 5%;
-    left: 5%;
+.infoPopUp{
+  font-size: 0.7em;
+  background: rgb(247, 236, 224);
+  width: 30%;
+  border-radius: 10px;
+  position: absolute;
+  padding: 5px;
+  visibility: hidden;
+  z-index: 1;
+}
+
+.fa-info-circle {
+  font-size: 1em;
+  color: var(--color-blue);
+  cursor: pointer;
+}
+
+.fa-info-circle:hover .infoPopUp{
+  visibility: visible;
+  
+}
+
+.infoEmail > div {
+  display: flex;
+  align-items: center;
+  padding-bottom: 2px;
+  padding-left: 2px;
+  color: var(--color-blue);
+}
+
+/* .infoEmail p {
+  padding-left: 5px ;
+  margin: 0;
+} */
+
+
+/* || End SingUp Page */
+
+/*VISTA TABLET LANDSCAPE y MONITORES DE ESCRITORIO VIEJOS*/
+@media only screen and (min-width:1024px) and (max-width:1365px){
+
+  /* || SingUp Page */
+    .bg-singup {
+      position: relative;
+      width: 75vh;
+      left: 50%;
+      margin-top:8%;
+    }
+    
+    .bg-singup img {
+      width: 80vh;
+    }
+    .eye {
+      margin-left: 64%;
+      margin-top: -4.3vh;
+    }
+    .infoPopUp{
+      width: 40%
+    }
   }
 
-  .bg-singup {
-    position: absolute;
-    width: 50%;
-    height: auto;
-    left: 53%;
-    top: 71.5%;
+/*VISTA TABLET EN VERTICAL, DISPLAY SMARTHPHONE EN LANDSCAPE*/
+@media only screen and (min-width:768px) and (max-width:1023px){
+  /* || Sing Up page */
+  .container-form{
+      width: auto;
+      bottom: 28%;
+      right: 5%;
+      left: 5%;
+  }
+  .bg-singup{
+      position: absolute;
+      width: 66%;
+      height: auto;
+      left: 36%; 
+      top: 62.5%;
+  }
+  .form-Singup input[type="text"],
+  [type="password"],
+  [type="email"] {
+   line-height: 4vh;
+}
+
+.form-Singup input[type="submit"] {
+  line-height: 4.5vh;
+ }
+  .desktop-SU{
+      display: none;
+  }
+  .tablet-SU{
+      display: block;
+  }
+  .mobile-SU{
+      display: none;
   }
 
-  .form-Singup {
-    top: 1%;
+  /* .bg-singup {
+    width: 50vh;
+    left: 38%;
+    margin-top:0;
+  } */
+  
+  .bg-singup img {
+    width: 50vh;
   }
-
-  .container-form h2 {
-    padding-bottom: 1px;
+  .eye {
+    margin-top: -3.4vh;
   }
-
-  .desktop-SU {
-    display: none;
-  }
-
-  .tablet-SU {
-    display: block;
-  }
-
-  .mobile-SU {
-    display: none;
+  .infoPopUp{
+    width: 40%;
   }
 }
-@media screen and (max-width: 425px) {
-  .container-form {
-    background: white;
-  }
+/* VISTA CELULARES*/
+@media only screen and (max-width:420px){
+/* || Sign-up */
+.container-form {
+  background: white;
+  width: 100%;
+  left: 0;
+}
 
-  .logo_singup {
-    display: none;
-  }
+.logo_singup {
+  display: none;
+}
 
-  .container-form h2 {
-    width: 100%;
-    color: rgba(0, 0, 0, 0.6);
-    vertical-align: top;
-    text-transform: initial;
-  }
+.container-form h2 {
+  width: 100%;
+  color: rgba(0, 0, 0, 0.6);
+  vertical-align: top;
+  text-transform: initial;
+}
 
-  .form-Singup .form-SU-Desktop-tablet {
-    display: none;
-  }
+.form-Singup .form-SU-Desktop-tablet {
+  width: 80%;
+}
 
-  .form-SU-movil {
-    display: block;
-    justify-content: center;
-  }
+.form-Singup input[type="text"],
+[type="password"],
+[type="email"] {
+  border-radius: 25px;
+  font-size: 1em;
+  line-height: 4vh;
+  border: ridge ;
+}
 
-  .form-Singup input[type='text'],
-  [type='password'],
-  [type='email'] {
-    background: rgba(255, 255, 255, 0.8);
-    filter: blur(0.1px);
-    margin-left: 10%;
-    margin-right: 10%;
-    width: 80%;
-    line-height: 150%;
-    text-align: left;
-    font-family: 'Roboto', sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 1.5em;
-    margin-bottom: 10%;
-    text-indent: 10px;
-  }
+.form-Singup input[type="submit"] {
+  background: var(--color-pink);
+}
 
-  .form-Singup input[type='submit'] {
-    background: var(--color-pink);
-    width: 80%;
-    margin-left: 10%;
-    margin-right: 10%;
-    line-height: 200%;
-    margin-top: 5%;
-  }
 
-  .desktop-SU {
-    display: none;
-  }
+.desktop-SU {
+  display: none;
+}
 
-  .tablet-SU {
-    display: none;
-  }
+.tablet-SU {
+  display: none;
+}
 
-  .mobile-SU {
-    display: block;
-  }
+.mobile-SU {
+  display: block;
+}
 
-  .bg-singup {
-    left: 0;
-    top: 75.5%;
-  }
+.bg-singup {
+  width: 100%;
+  left: 0;
+  margin-top: 75vh;
+  align-items: center;
+}
 
-  .bg-singup img {
-    width: 200%;
-  }
+.bg-singup img {
+  width: 100%;
+}
 
-  .form-Singup span p {
-    color: rgba(0, 0, 0, 0.6);
-  }
+.form-Singup span p {
+  color: rgba(0, 0, 0, 0.6);
+}
 
-  .form-Singup span a {
-    color: var(--color-blue);
-    font-size: 1em;
-    padding-left: 8px;
-  }
+.form-Singup span a {
+  color: var(--color-blue);
+  font-size: 1em;
+  padding-left: 8px;
+}
+.eye {
+  margin-top: -4.1vh;
+  margin-left: 72%;
+  font-size: 1.4em;
+}
+
+/* .signupGoogle p{
+  color: var(--color-blue);
+} */
+.infoPopUp{
+  width: 50%;
+  z-index: 100;
+}
+.fa-info-circle {
+  color: var(--color-pink);
+}
+
+.SingUp-Container .form-Singup span a {
+  color: var(--color-pink);
+}
 }

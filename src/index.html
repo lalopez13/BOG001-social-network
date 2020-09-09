@@ -1,21 +1,46 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
   <html lang="en">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="./img/Sm-icon.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" />
     <link rel="stylesheet" href="./style.css">
-    <title>SoulMates</title>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-firestore.js"></script>
+    <title>SoulMates</title> 
+    <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-app.js"></script>
+    <!-- Add Firebase products that you want to use -->
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-storage.js"></script>
     <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.17.1/firebase-analytics.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase-analytics.js"></script>
+ <!-- Initialize Firebase -->
+ <!-- <script src="https://www.gstatic.com/firebasejs/7.19.1/firebase/init.js"></script>    -->
+  </head>
 
+  <body>
+    <header id="headerNav">
+      <nav>
+        <label for="menu">&#9776</label>
+        <input type="checkbox" id="menu">
+        <ul>
+          <li><a href="">HOME</a></li>
+          <li><a href="#/login">INGRESO</a></li>
+          <li><a href="#/sign-up">REGISTRO</a></li>
+
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section id="root"></section>
+    </main>
+    
     <script>
       // Your web app's Firebase configuration
       var firebaseConfig = {
@@ -29,33 +54,8 @@
       };
       // Initialize Firebase
       firebase.initializeApp(firebaseConfig);
-      //var storage = firebase.storage();
     </script>
-  </head>
-
-  <body>
-    <header id="headerNav">
-      <nav>
-        <label for="menu">&#9776</label>
-        <input type="checkbox" id="menu">
-        <ul>
-          <li><a href="">HOME</a></li>
-          <li><a href="#/login">LOGIN</a></li>
-          <li><a href="#/sign-up">REGISTRO</a></li>
-
-        </ul>
-      </nav>
-    </header>
-
-    <main>
-      <section id="root"></section>
-    </main>
-
-
-
     <script type="module" src="main.js"></script>
   </body>
 
   </html>
-
- 

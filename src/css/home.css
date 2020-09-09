@@ -1,178 +1,195 @@
+  
+/*VISTA MONITORES DE ESCRITORIO CON 1366PX O MAS*/
+/* || Home page */ 
+
 .homeContainer-desktop {
-    width: 100vw;
-    height: 80vh;
-    background: url(../img/Home2-desktop.svg) no-repeat;
-    background-size: 80%;
-  }
-  
-  .homeContainer-mobile {
-    display: none;
-  }
-  
-  #main-img {
-    align-items: center;
-    width: 50%;
-    justify-content: center;
-    margin-top: 15%;
-    margin-left: 42%;
-  }
-  
-  #logo-home {
-    position: absolute;
-    left: 47.66%;
-    right: 8.85%;
-    top: 10%;
-    bottom: 81.82%;
-  }
-  
-  /* || Header and Main Navigation */
-  header {
-    margin: 0;
-    font-family: "Fredoka One", cursive;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw;
-    height: 10vh;
-  }
-  
-  nav ul {
-    float: right;
-  }
-  
-  nav a {
-    color: black;
-    text-decoration: none;
-    font-size: 1.8vw;
-  }
-  
-  nav a:hover {
-    color: var(--color-pink);
-    transition: 0.5s;
-  }
-  
-  nav li {
-    list-style: none;
-    display: inline-block;
-    padding: 15px 100px;
-  }
-  
-  #menu {
-    display: none;
-  }
-  
-  nav label {
-    color: gray;
-    float: right;
-    line-height: 80px;
-    font-size: 35px;
-    display: none;
-  }
+  width: 100vw;
+  height: 80vh;
+  background: url(../img/Home2-desktop.svg) no-repeat;
+  background-size: 100%;
+}
+
+.homeContainer-mobile {
+  display: none;
+}
+
+#main-img {
+  align-items: center;
+  width: 45.5%;
+  justify-content: center;
+  margin-top: 15%;
+  margin-left: 42%;
+}
+
+#logo-home {
+  position: absolute;
+  left: 56%;
+  top: 10%;
+  bottom: 81.82%;
+  width: 40%;
+}
+/* || End Home page */ 
+
+/* || Header and Main Navigation */
+header {
+  margin: 0;
+  font-family: "Fredoka One", cursive;
+  align-items: center;
+  justify-content: space-between;
+  width: 100vw;
+  height: 10vh;
+}
+
+nav ul {
+  float: right;
+}
+
+nav a {
+  color: black;
+  text-decoration: none;
+  font-size: 1.8vw;
+}
+
+nav li {
+  list-style: none;
+  display: inline-block;
+  padding: 15px 100px;
+}
+
+#menu {
+  display: none;
+}
+
+nav label {
+  color: gray;
+  float: right;
+  line-height: 80px;
+  font-size: 35px;
+  display: none;
+}
+
+nav a:hover {
+  color: var(--color-pink);
+  transition: 0.5s;
+}
+/* || End Header and Main Navigation */
 
 
+/*VISTA TABLET LANDSCAPE y MONITORES DE ESCRITORIO VIEJOS*/
+@media only screen and (min-width:1024px) and (max-width:1365px){
+  /* || Home page */
+#main-img {
+  width: 54%;
+}
+}
 
-@media only screen and (max-width: 768px) {
-
+/*VISTA TABLET EN VERTICAL, DISPLAY SMARTHPHONE EN LANDSCAPE*/
+@media only screen and (min-width:768px) and (max-width:1023px){
+  /* || Home page */
   .homeContainer-desktop {
-    z-index: -1000;
-    background-size: 100%;
-    margin-top: 30%;
-    height: 50vh
+      z-index: -1000;
+      background-size: 100%;
+      margin-top: 30%;
+      height: 50vh
+    }
+  
+    #main-img{
+      width: 70%;
+      margin: 10% 15%;
+      z-index: 1;
+    }
+  
+    #logo-home {
+      width: 70%;
+      left: 14.58%;
+      right: 12.81%;
+      top: 20%;
+      bottom: 65.29%;
+    }
+  
+    nav label {
+      margin-top: 30px;
+      display: flex;
+      cursor: pointer;
+      margin-right: 50px;
+      z-index: 4;
+    }
+  
+    nav ul li {
+      display:block;
+      margin: 40px 20px;
+      padding: 10px 60px;
+    }
+    
+    nav ul {
+      position: fixed;
+      width: 80%;
+      height: 10vh;
+      right: -100%;
+      text-align: center;
+      transition: all .5s;
+      z-index: 2;
+      align-items: center;
+    }
+
+    nav ul li a{
+      font-size: 1.3em;
+    }
+  
+    nav ul li:hover {
+      border-left: 4px solid var(--color-pink);
+    }
+  
+    #menu:checked + ul {
+      display: flex;
+      right: 23%;
+    } 
   }
 
-  #main-img {
-    width: 70%;
-    margin: 10% 15%;
-    z-index: 1;
-  }
-
-  #logo-home {
-    width: 70%;
-    left: 14.58%;
-    right: 12.81%;
-    top: 20%;
-    bottom: 65.29%;
-  }
-
-  nav label {
-    margin-top: 30px;
-    display: flex;
-    cursor: pointer;
-    margin-right: 50px;
-    z-index: 4;
-  }
-
-  nav ul li {
-    display: block;
-    margin: 40px 20px;
-    padding: 10px 60px;
-  }
-
-
-  nav ul {
-    position: fixed;
-    width: 80%;
-    height: 10vh;
-    /* top: 80px; */
-    right: -100%;
-    text-align: center;
-    transition: all .5s;
-    z-index: 2;
-
-  }
-
-  nav ul li:hover {
-    border-left: 4px solid var(--color-pink);
-  }
-
-  #menu:checked+ul {
-    display: flex;
-    right: 23%;
-  }
-}
-
-@media screen  and (max-width:425px){
+/*VISTA CELULARES*/
+@media only screen and (max-width:420px){
+    /* || Home */
     .homeContainer-mobile {
-        display: block;
-      }
-    
-      .homeContainer-desktop {
-        display: none;
-      }
-    
-      #logo-home {
-        top: 10%;
-        width: 85%;
-        left: 10%;
-      }
-    
-      .appStartbtn {
-        border: none;
-        position: absolute;
-        width: 50%;
-        height: 5%;
-        left: 27%;
-        top: 80%;
-        background: var(--color-blue);
-        border-radius: 25px;
-        color: white;
-        font-size: 17px;
-        font-family: "Roboto", sans-serif;
-      }
-    
-      .appStartbtn:hover {
-        background: #597ca1;
-      }
-    
-      .appStartbtn a {
-        color: white;
-        text-decoration: none;
-      }
-    
-      #mobileMain-img {
-        position: absolute;
-        width: 90%;
-        left: 18px;
-        top: 30%;
-      }
-
-}
+       display: block;
+     }
+   
+     .homeContainer-desktop {
+       display: none;
+     }
+   
+     #logo-home {
+       top: 10%;
+       width: 85%;
+       left: 10%;
+     }
+   
+     .appStartbtn {
+       border: none;
+       position: absolute;
+       width: 50%;
+       height: 5%;
+       left: 27%;
+       top: 80%;
+       background: var(--color-blue);
+       border-radius: 25px;
+       color: white;
+       font-size: 17px;
+       font-family: "Roboto", sans-serif;
+     }
+   
+     .appStartbtn:hover {
+       background: #597ca1;
+     }
+   
+     .appStartbtn a {
+       color: white;
+       text-decoration: none;
+     }
+   
+     #mobileMain-img {
+       position: absolute;
+       width: 90%;
+       left: 18px;
+       top: 30%;
+     }
+    }    
