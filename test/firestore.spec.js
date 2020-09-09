@@ -9,9 +9,9 @@ describe('Añadir informacion del usuario', () => {
     expect(typeof addPostUserData).toBe('function');
   });
 });
-describe('addPostUserData', () => {
-  it('Deberia agregar los datos del post', () => addPostUserData('soy un perro').then((data) => {
-    expect(data).tobe('soy un lindo perro');
+describe.only('addPostUserData', () => {
+  it('Deberia agregar la descripcion del post', () => addPostUserData('soy un perro').then((data) => {
+    expect(data).toBe('soy un lindo perro');
   }));
 });
 describe('Obtener informacion del usuario', () => {

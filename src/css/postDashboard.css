@@ -1,97 +1,83 @@
 /*USER HEADER*/
 #userphoto{
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
 } 
 hr {
-    border: 1px solid var(--color-blue);
-  }
-  
-  .info_icon {
-    color:var(--color-blue);
-    font-size: 18px;
-    padding: 3px;
-  }
-  
-  .user_social_icon {
-    float: right;
-    margin-right: 5px;
-    color: #fff;
-  }
-  #user-header {
-    background:white;
-    position: fixed;
-    width: 100vw;
-    height: 15vh;
-    margin: auto;
-    padding: 10px;
-    color:black;
-    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.171);
-    z-index:3;
-  }
-  
-  #user {
-    width: 700px;
-    height: 100px;
-    float: left;
-    
-  }
-  
-  
-  #user-picture {
-    float: left;
-    padding-right: 20px;
-  }
-  
-  #user-info {
-    width: 600px;
-    height: 90px;
-    padding-top: 10px;
-  }
-  
-  .user_name {
-    font-family: 'Fredoka One', cursive;
-    font-weight: 400;
-    margin: 0;
-    color:black;
-    letter-spacing: 1.75px;
-  }
-  
-
-  
-  #user-info ul {
-    padding: 0;
-    list-style-type: none;
-    margin-top: 5px;
-  }
-  
-  #user_list {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 200;
-    font-size: 14px;
-    color:black;
-  }
-  
-  #user_list li {
-    display: inline;
-    margin-right: 20px;
-    letter-spacing: 1px;
-  }
-  
-  
-  #nav-btn {  
-    width: 300px;
-    height: 65px;
-    padding: 8px;
-    float: right;
-    margin-top: 9px;
-    margin-right: -30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
+  border: solid;
+  border-width: 1px;
+  border-color:var(--color-blue);
+}
+.info_icon {
+  color:var(--color-blue);
+  font-size: 18px;
+  padding: 3px;
+}
+.user_social_icon {
+  float: right;
+  margin-right: 5px;
+  color: #fff;
+}
+#user-header {
+  background:white;
+  position: fixed;
+  width: 100vw;
+  height: 15vh;
+  margin: auto;
+  padding: 10px;
+  color:black;
+  box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.171);
+  z-index:3;
+}
+#user {
+  width: 700px;
+  height: 100px;
+  float: left;
+}
+#user-picture {
+  float: left;
+  padding-right: 20px;
+}
+#user-info {
+  width: 600px;
+  height: 90px;
+  padding-top: 10px;
+}
+.user_name {
+  font-family: 'Fredoka One', cursive;
+  font-weight: 400;
+  margin: 0;
+  color:black;
+  letter-spacing: 1.75px;
+}
+#user-info ul {
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+#user_list {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 200;
+  font-size: 14px;
+  color:black;
+}
+#user_list li {
+  display: inline;
+  margin-right: 20px;
+  letter-spacing: 1px;
+}
+#nav-btn {  
+  width: 300px;
+  height: 65px;
+  padding: 8px;
+  float: right;
+  margin-top: 9px;
+  margin-right: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 section.board {
   margin-top: 12%;
   display: flex;
@@ -102,25 +88,21 @@ section.board {
 }
 .post-form {
   justify-content: center;
-  height: 50vh;
   margin: auto;
+  margin-top: 5%;
   border-radius: 10px;
-  /* display: flex; */
-  width: 95%;
   align-items: center;
+  text-align: center;
 }
 aside {
+  width: 20vw;
   font-family: 'Roboto', sans-serif;
   display: inline-block;
   color: white;
-  /* transform: translateX(750px); */
-  margin-top: 12%;
-  /* width: 40vw; */
-  /* float: left; */
+  margin-top: 11%;
   background: rgb(117, 114, 126);
   position: fixed;
-  margin-left: 5;
-  /* padding: 30px; */
+  margin-left: 5px;
   height: 100vh;
   justify-content: center;
 }
@@ -155,31 +137,26 @@ textarea#description {
 button#submit-post {
   width: 200px;
 }
-
 /* POST FORMATO*/
+#post-container{
+  width: 78vw;
+  text-align:center;
+}
 .soulmates-post {
+  margin:0px auto;
   border: 1px solid rgba(128, 128, 128, 0.61);
   position: relative;
-  height: 550px;
-  width: 440px;
-  margin: 0 auto;
+  height: 650px;
+  width: 50vw;
   background-color: #ffffff;
   overflow: hidden;
   margin-bottom:5px;
-}
-.soulmates-post-modal{
-  border: 1px solid rgba(128, 128, 128, 0.61);
-  position: relative;
-  height: 200px;
-  width:300px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  overflow: hidden;
-  cursor: default;
+  
 }
 .soulmates-post-top {
   position: relative;
   height: 60px;
+  width: auto;
   overflow: hidden;
 }
 img.post-header-avatar {
@@ -222,25 +199,23 @@ img.post-header-avatar {
   color: #bebebe;
   cursor:pointer;
 }
-.soulmates-post-bookmark {
-  position: absolute;
-  right: 20px;
-  top: 18px;
-  font-size: 24px;
-  color: #cecece;
-}
 .soulmates-post-image {
   position: relative;
 }
 .soulmates-post-image img {
-  max-width: 440px;
-  min-width: 440px;
-  max-height: 370px;
-  min-height: 370px;
+  max-width: 600px;
+  min-width: 600px;
+  max-height: 450px;
+  min-height: 450px;
   overflow: hidden;
 }
 .soulmates-post-bottom {
   position: relative;
+}
+.soulmates-post-desc p {
+  position: relative;
+  font-family:'Roboto', sans-serif;
+  color: #707070;
 }
 .soulmates-post-desc {
   position: relative;
@@ -250,21 +225,8 @@ img.post-header-avatar {
   border-bottom: 1px solid #dedede;
   overflow: hidden;
 }
-/* .soulmates-post-desc p {
-  position: relative;
-  font-family:'Roboto', sans-serif;
-  color: #707070;
-} */
 .post-text{
   font-size:15px;
-}
-.soulmates-post-desc div {
-  display: inline-block;
-  margin-right: 3px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: bold;
-  color: #e1cbcf;
 }
 .soulmates-post-desc div i {
   color: #e1cbcf;
@@ -290,11 +252,15 @@ img.post-header-avatar {
 .option-post-icons{
   transform: translateX(180px);
 }
-#like,
+.btnLike,
 #edit,
 #trash{
   color:#cecece;
   font-size:20px;
+}
+
+.btnLike.active{
+  color: red;
 }
 .soulmates-post-icons button{
   font-family: 'Roboto', sans-serif;
@@ -304,16 +270,16 @@ img.post-header-avatar {
   margin-left: 30px;
 }
 .soulmates-post-icons button:hover{
-color: #949494;
-transition: .4s;
+  color: #949494;
+  transition: .4s;
 }
 #postPhoto{
   display:none;
 }
 .post-label{
-background:gray;
-padding:10px;
-cursor:pointer;
+  background:gray;
+  padding:10px;
+  cursor:pointer;
 }
 /*modal*/
 /* The Modal (background) */
@@ -330,23 +296,28 @@ cursor:pointer;
   background-color: rgb(0,0,0); 
   background-color: rgba(0,0,0,0.4);
 }
-
 /* Modal Content */
 .modal-content {
   border-radius: 20px; 
-    transform: translateY(50px);
-    position: relative;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid #888;
-    width: 50%;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-    animation-name: animatetop;
-    animation-duration: 0.4s;
-    overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 10px;
+  border: 1px solid #888;
+  width: 50%;
+  height: 55%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+  overflow: auto;
 }
-
 .userContent input {
   padding: 5px;
   margin-bottom: 10px;
@@ -354,7 +325,6 @@ cursor:pointer;
   width: 100%;
   border: 1px solid rgba(128, 128, 128, 0.664);
 }
-
 .post-header h2 {
   font-family: 'Fredoka One', cursive;
 }
@@ -370,103 +340,115 @@ cursor:pointer;
   font-family: 'Fredoka One', cursive;
   color:  rgba(128, 128, 128, 0.664);
 }
-
-
 .post-preview-image {
   display: none;
   width: 100%;
 }
+.infoPostUser{
+  width: 100%
+}
 #title ,#description {
-    border: 1px solid gray;
+  border: 1px solid gray;
 }
 .upload-img-post{
   font-family: 'Roboto', sans-serif;
   padding: 5px;
   background:var(--color-blue); 
   color: #fff;
-   }
+ }
 input[type="file"] {
   display: none;
 }
 
 /* Add Animation */
 @-webkit-keyframes animatetop {
-  from {top:-300px; opacity:0} 
-  to {top:0; opacity:1}
+from {top:-300px; opacity:0} 
+to {top:0; opacity:1}
 }
 
 @keyframes animatetop {
-  from {top:-300px; opacity:0}
-  to {top:0; opacity:1}
+from {top:-300px; opacity:0}
+to {top:0; opacity:1}
 }
 
 /* The Close Button */
 .close {
-  color:var(--color-pink);
-  float: right;
-  font-size: 20px;
-  font-weight: bold;
+color:var(--color-pink);
+float: right;
+font-size: 20px;
+font-weight: bold;
 }
 
 .close:hover,
 .close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+color: #000;
+text-decoration: none;
+cursor: pointer;
 }
 
 .image-preview-image-post {
-  display: none;
-  width: 400px;
-  height: 400px;
+display: none;
+width: 400px;
+height: 400px;
 
 }
 #submit-post {
-  color:white;
-  width: 300px;
-  height: 25px;
-  background:var(--color-blue);
-  border-radius: 25px;
+color:white;
+width: 300px;
+height: 25px;
+background:var(--color-blue);
+border-radius: 25px;
 }
 
 /* likes*/
 #like:hover{
-  color: #ff7851;
-  transition: .4s;
-  cursor:pointer;
+color: #ff7851;
+transition: .4s;
+cursor:pointer;
 }
 #edit:hover{
-  color: #949494;
-  transition: .4s;
+color: #949494;
+transition: .4s;
 }
 #trash:hover{
-  color: #949494;
-  transition: .4s;
+color: #949494;
+transition: .4s;
 }
 
 .liked-heart {
-  color: #ff7851;
+color: #ff7851;
 }
 
 /*Modal mensaje borrar post*/
 
 .modal-delete-container {
-  padding: 10px;
-  background: white;
+  background: rgba(101, 153, 221, 0.356);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.modal-delete-content{
+  background: #f8f8f8;
+  box-shadow: 0px 0px 50px 0px rgba(255, 255, 255, 0.3);
+  border-radius: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 20px;
+  text-align: center;
   width: 50%;
-  margin: 300px auto;
-  border-radius: 4px;
-  
+  height: auto;
 }
 .delete-post-title{
   margin-top: 50px;
-    padding-left: 80px;
-    width: 400px;
+  width: 100%;
 }
 .delete-post-content{
   font-family: 'Roboto', sans-serif;
-  padding-left: 150px;
-  margin-top: -40px;
+  margin-top: -5%;
 }
 .modal-delete {
   position: fixed;
@@ -481,17 +463,18 @@ input[type="file"] {
   display: block;
   background-color:rgba(0,0,0,0.5);
 }
-.modal-delete-box-button{
-  padding: 10px;
-  text-align: center;
-} 
-/* .modal-delete-box-button button {
+.modal-delete-box-button button {
   color: white;
   width: 100px;
   padding: 10px;
   background-color: #364c63;
   border-radius: 20px;
-} */
+}
+.modal-delete-box-button{
+  padding: 10px;
+  text-align: center;
+}
+
 .btn-delete {
   padding: 8px 25px;
   border: none;
@@ -510,49 +493,195 @@ input[type="file"] {
 #mainPage,
 #signOff,
 #editUser{
-  color: #364c63bf;
-  font-size: 30px;
-  background: none;
+color: #364c63bf;
+font-size: 30px;
+background: none;
 }
 
 #nav-btn button:hover{
 color:var(--color-blue);
 }
-
-@media screen  and (max-width:768px){
-
-#user-info {
-    width: 500px;
+ /*VISTA TABLET LANDSCAPE y MONITORES DE ESCRITORIO VIEJOS*/
+ @media only screen and (min-width:1024px) and (max-width:1365px){
+  aside {
+    margin-top: 11%;
+    }
+  #post-aside-info > p {
+    margin-top: 15%;
+  }
+/* POST FORMATO*/
+#post-container{
+  width: 80vw;
 }
-#nav-btn {
+.soulmates-post {
+  width: 70vw;
+  height: 542px;
+}
+.soulmates-post-image img {
+  max-width: 483px;
+  min-width: 483px;
+  max-height: 350px;
+  min-height: 350px;
+}
+.soulmates-post-desc {
+  width: auto;
+}
+.soulmates-post-icons {
+  width: auto;
+}
+ }
+
+/*VISTA TABLET EN VERTICAL, DISPLAY SMARTHPHONE EN LANDSCAPE*/
+@media only screen and (min-width:768px) and (max-width:1023px){
+
+  #user-info {
+    width: 500px;
+  }
+  #user-header{
+    height: 12vh;
+  }
+  #nav-btn {
     display: flex;
-    width:200px;
-    margin-right: 0;
-}
-#user {
+    width: 200px;
+    margin: 15px;
+    flex-grow: 1;
+    justify-content: space-between;
+    
+  }
+  #user {
     width: 500px;
+    margin-top: 2%;
+  }
+  aside{
+    display: none;
+  }
+  section.board {
+    margin-top: 22%;
+  }
+/* POST FORMATO*/
+  #post-container{
+    width: 100vw;
+  }
+  .soulmates-post {
+    width: 70vw;
+    height: 542px;
+  }
+  .soulmates-post-image img {
+    max-width: 483px;
+    min-width: 483px;
+    max-height: 350px;
+    min-height: 350px;
+  }
+  .soulmates-post-desc {
+    width: auto;
+  }
+  .soulmates-post-icons {
+    width: auto;
+  }
+/* Modal Content */
+  .modal-content {
+    width: 80vw;
+    height: 45vh;
+  }
+  .post-header {
+    height: 8%;
+  }
+  .post-preview {
+    width: 220px;
+    height: 200px;
+  }
+/*Modal mensaje borrar post*/
+  .modal-delete-content{
+    width: 80%;
+  }   
 }
-aside{
-  display: none;
-}
-section.board {
-  margin-top: 22%;
-}
-}
-@media screen  and (max-width:425px){
+/* VISTA CELULARES*/
+@media only screen and (max-width:420px){
   #userphoto {
     width: 50px;
     height: 50px;
   }
+  #user-header{
+    height: 12vh;
+  }
   #user {
-    width: 100px;
-}
-#user-info {
-  width: 200px;
-}
-#nav-btn {
-
-  width: 100px;
-
-}
+    display: flex;
+  }
+  #user-info {
+    display: block;
+    width: 160px;
+    align-items: center;
+  }
+  #user-picture{
+    padding-right: 5px;
+    padding-top: 15px;
+  }
+  #user_list{
+    display: inline-flex;
+  }
+  #user_list li{
+    display: inline-flex;
+    font-size: 0.8em;
+    align-items: center;
+    margin-right: 1px;
+    margin-top: -5%;
+  }
+  #user_list li span i{
+    font-size: 0.7em
+  }
+  #nav-btn {
+    position: fixed;
+    background: cornsilk;
+    top: 88vh;
+    width: 90%;
+    padding-left: 0;
+    margin-left: 0;
+    justify-content: space-between;
+    box-shadow: 0px -4px 26px rgba(0, 0, 0, 0.171);
+  }
+  aside{
+    display: none;
+  }
+  section.board {
+    width: 100%;
+    margin-bottom: 25%;
+  }
+/* Modal Content */
+  .modal-content {
+    width: 85vw;
+    height: 60vh;
+  }
+  .post-header {
+    height: 8%;
+  }
+  .post-preview {
+    width: 180px;
+    height: 180px;
+  }
+/* POST FORMATO*/
+  #post-container{
+    width: 100vw;
+    margin-top:20%;
+  }
+  .soulmates-post {
+    width: 98vw;
+    margin-left: 3px;
+    height: 432px;
+  }
+  .soulmates-post-image img {
+    max-width: 283px;
+    min-width: 283px;
+    max-height: 250px;
+    min-height: 250px;
+  }
+  .soulmates-post-desc {
+    width: auto;
+  }
+  .soulmates-post-icons {
+    width: auto;
+  }
+  /*Modal mensaje borrar post*/
+  .modal-delete-content{
+    width: 80%;
+  }   
 }

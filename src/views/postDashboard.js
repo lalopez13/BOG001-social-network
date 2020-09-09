@@ -35,7 +35,7 @@ export default () => {
         <button id="mainPage"><i class="fas fa-home"></i></button>
         <button id="addPost"><i class="fas fa-plus-circle"></i></button>
         <button id="editUser"><i class="fas fa-user-edit"></i></button>
-        <button id="signOff"><i class="fas fa-times-circle"></i></button>
+        <button id="signOff"><i class="fas fa-sign-out-alt"></i></button>
       </div>
     </div>
     <section class="board">
@@ -515,6 +515,18 @@ export default () => {
     );
     // Span Me encanta
     const mencantaSpan = createElementHTML('span', {}, IconPost, 'Me encanta');
+    /* buttonLike.addEventListener('click', function () {
+        const uidUser = firebase.auth().currentUser;
+        let pushLike = post.likes.some(likes => likes === userid.uid);
+        likePost(postQ.id,uidUser,pushLike);
+        if (pushLike) {
+          pushLike = false;
+        } else {
+          pushLike = true;
+        }
+      },
+      false
+    ); */
     // Edit button
     const editButton = createElementHTML(
       'button',

@@ -62,12 +62,19 @@
 //     .collection('user')
 //     .doc(uid)
 //     .set(dataUser)
-const firestore = () => ({
-  collection: nameCollection => ({
-    add: objData => new Promise((resolve) => {
-      resolve('soy un lindo perro');
-    }),
+
+const doc = jest.fn().mockImplementation(() => {});
+
+const collection = jest.fn().mockImplementation(nameCollection => ({
+  add: objData => new Promise((resolve) => {
+    resolve('soy un lindo perro');
   }),
+  doc,
+}));
+
+
+const firestore = () => ({
+  collection,
 });
 
 const auth = () => ({

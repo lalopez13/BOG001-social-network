@@ -48,12 +48,10 @@
 
 import { addUsersData } from './database.js';
 // references
-const auth = firebase.auth();
-const provider = new firebase.auth.GoogleAuthProvider();
 
 // Estado del usuario
 function userState() {
-  auth.onAuthStateChanged((user) => {
+  firebase.auth().onAuthStateChanged((user) => {
     if (user) {
       const userId = user;
       localStorage.setItem('usuario', JSON.stringify(userId));
@@ -67,7 +65,7 @@ function userState() {
 userState();
 // Crear un usuario nuevo
 export const createUsers = (email, password) => {
-  auth
+  firebase.auth()
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
       console.log(cred.user);
@@ -80,8 +78,8 @@ export const createUsers = (email, password) => {
 };
 // Crear un usuario con google
 export const createUserswithGoogle = () => {
-  auth
-    .signInWithPopup(provider)
+  firebase.auth()
+    .signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(() => {
       window.location.hash = '#/profile';
       console.log('google user');
@@ -93,7 +91,7 @@ export const createUserswithGoogle = () => {
 };
 // login un usuario con google
 export const loginUserswithGoogle = () => {
-  auth
+  fireabse.auth()
     .signInWithPopup(provider)
     .then(() => {
       window.location.hash = '#/dashboard';
@@ -106,7 +104,7 @@ export const loginUserswithGoogle = () => {
 };
 // Log in usuario
 export const signInUsers = (email, password) => {
-  auth
+  firebase.auth()
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
       console.log(user);
@@ -129,7 +127,7 @@ export const signInUsers = (email, password) => {
 };
 // Cerrar sesion usuario
 export const userSignOff = () => {
-  auth
+  firebase.auth()
     .signOut()
     .then(() => {
       console.log('salir');
@@ -141,7 +139,7 @@ export const userSignOff = () => {
 };
 // Recuperar contraseña usuario
 export const recoverPass = (email) => {
-  auth
+  firebase.auth()
     .sendPasswordResetEmail(email)
     .then(() => {
       const msjEmailSend = document.querySelector('#EmailSend');

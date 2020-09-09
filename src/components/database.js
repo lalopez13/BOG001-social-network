@@ -18,20 +18,13 @@ export async function addUsersData(dataUser, uid) {
     });
 }
 
-// Añadir los datos de cada post a la coleccion del usuario
-export async function addPostUserData(uid, dataPost) {
-  await firebase.firestore()
+// Añadir los descripcion de cada post a la coleccion del usuario
+export function addPostUserData(uid, dataPost) {
+  firebase.firestore()
     .collection('user')
     .doc(uid)
     .collection('post')
-    .add(dataPost)
-    .then((doc) => {
-      console.log(doc.data());
-      console.log('Document successfully uploaded!');
-    })
-    .catch((error) => {
-      console.log('Error upload document: ', error);
-    });
+    .add(dataPost);
 }
 
 
@@ -64,7 +57,19 @@ export function deletePostUserData(uid, idPost) {
       console.log('Error removing document: ', error);
     });
 }
-
+// Aumenta el contador de Likes
+// export async function likePost(currentUserId, postId, pushLike) {
+//   const postRef = data.collection('post').doc(postId);
+//   if (pushLike) {
+//     postRef.update({
+//       likes: firebase.firestore.FieldValue.arrayRemove(currentUserId),
+//     });
+//   } else {
+//     postRef.update({
+//       likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
+//     });
+//   }
+// }
 // ------------------------STORAGE---------------------------------
 
 // Crear folder y guardar las imagenes
