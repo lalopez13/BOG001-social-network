@@ -56,9 +56,9 @@ function userState() {
       const userId = user;
       localStorage.setItem('usuario', JSON.stringify(userId));
       // User is signed in.
-      console.log('usuario activo');
+      // console.log('usuario activo');
     } else {
-      console.log('no existe usuario activo');
+      // console.log('no existe usuario activo');
     }
   });
 }
@@ -68,10 +68,10 @@ export const createUsers = (email, password) => {
   firebase.auth()
     .createUserWithEmailAndPassword(email, password)
     .then((cred) => {
-      console.log(cred.user);
+      // console.log(cred.user);
       sendEmail();
     }).catch((error) => {
-      console.log(error.message);
+      // console.log(error.message);
       const emailMessage = document.querySelector('#messageEmailSU');
       emailMessage.innerHTML = error.message;
     });
@@ -82,24 +82,24 @@ export const createUserswithGoogle = () => {
     .signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(() => {
       window.location.hash = '#/profile';
-      console.log('google user');
+      // console.log('google user');
       addUsersData(User, id);
     })
     .catch((error) => {
-      console.log(`error google ${error}`);
+      // console.log(`error google ${error}`);
     });
 };
 // login un usuario con google
 export const loginUserswithGoogle = () => {
-  fireabse.auth()
-    .signInWithPopup(provider)
+  firebase.auth()
+    .signInWithPopup(new firebase.auth.GoogleAuthProvider())
     .then(() => {
       window.location.hash = '#/dashboard';
-      console.log('google user');
+      // console.log('google user');
       addUsersData(User, id);
     })
     .catch((error) => {
-      console.log(`error google ${error}`);
+      // console.log(`error google ${error}`);
     });
 };
 // Log in usuario
@@ -107,7 +107,7 @@ export const signInUsers = (email, password) => {
   firebase.auth()
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
-      console.log(user);
+      // console.log(user);
       window.location.hash = '#/dashboard';
       // const uidUser = user.user.uid;
       // if (user.user.emailVerified) {
@@ -120,7 +120,7 @@ export const signInUsers = (email, password) => {
       // }
     })
     .catch((error) => {
-      console.log(error);
+      // console.log(error);
       const emailMessage = document.querySelector('#messageEmailLog');
       emailMessage.innerHTML = 'Este usuario no esta Registrado';
     });
@@ -130,11 +130,11 @@ export const userSignOff = () => {
   firebase.auth()
     .signOut()
     .then(() => {
-      console.log('salir');
+      // console.log('salir');
       window.location.hash = '';
     })
     .catch((error) => {
-      console.log(error.message);
+      // console.log(error.message);
     });
 };
 // Recuperar contraseña usuario
@@ -146,7 +146,7 @@ export const recoverPass = (email) => {
       msjEmailSend.style.display = 'block';
     })
     .catch((error) => {
-      console.log(error.message);
+      // console.log(error.message);
     });
 };
 // Enviar Email de Confirmación
@@ -154,13 +154,13 @@ const sendEmail = () => {
   const user = firebase.auth().currentUser;
   user.sendEmailVerification()
     .then(() => {
-      console.log('El correo se envio');
+      // console.log('El correo se envio');
       const overlay = document.querySelector('#overlay');
       const popup = document.querySelector('#popup');
       overlay.classList.add('active');
       popup.classList.add('active');
     })
     .catch((error) => {
-      console.log(error.message);
+      // console.log(error.message);
     });
 };

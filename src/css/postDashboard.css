@@ -132,7 +132,7 @@ input#title {
 textarea#description {
   margin-bottom: 10px;
   margin-top: 20px;
-  width: 300px;
+  width: 350px;
 }
 button#submit-post {
   width: 200px;
@@ -143,7 +143,6 @@ button#submit-post {
   text-align:center;
 }
 .soulmates-post {
-  margin:0px auto;
   border: 1px solid rgba(128, 128, 128, 0.61);
   position: relative;
   height: 650px;
@@ -151,7 +150,7 @@ button#submit-post {
   background-color: #ffffff;
   overflow: hidden;
   margin-bottom:5px;
-  
+  margin:0px auto;
 }
 .soulmates-post-top {
   position: relative;
@@ -351,10 +350,13 @@ img.post-header-avatar {
   border: 1px solid gray;
 }
 .upload-img-post{
+  width: 200px;
   font-family: 'Roboto', sans-serif;
   padding: 5px;
-  background:var(--color-blue); 
+  background: var(--color-blue);
   color: #fff;
+  margin-left: auto;
+  margin-right: auto;
  }
 input[type="file"] {
   display: none;
@@ -398,6 +400,7 @@ width: 300px;
 height: 25px;
 background:var(--color-blue);
 border-radius: 25px;
+border-radius: 25px;
 }
 
 /* likes*/
@@ -440,15 +443,14 @@ color: #ff7851;
   padding: 20px;
   text-align: center;
   width: 50%;
-  height: auto;
+  height: 20%
 }
 .delete-post-title{
-  margin-top: 50px;
   width: 100%;
 }
 .delete-post-content{
   font-family: 'Roboto', sans-serif;
-  margin-top: -5%;
+  margin-top: -10%;
 }
 .modal-delete {
   position: fixed;
@@ -471,8 +473,10 @@ color: #ff7851;
   border-radius: 20px;
 }
 .modal-delete-box-button{
+  position: absolute;
   padding: 10px;
   text-align: center;
+  margin-top: 110px;
 }
 
 .btn-delete {
@@ -684,4 +688,10 @@ color:var(--color-blue);
   .modal-delete-content{
     width: 80%;
   }   
+  textarea#description {
+    width: 200px;
+}
+#submit-post {
+  width: 250px;
+}
 }
