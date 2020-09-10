@@ -1,13 +1,13 @@
 export default () => {
   const view = `
-       <img id ="logo-home" src="../img/logo-BluePink.png" alt="logo">
+       <img id ="logo-home" src="/src/img/logo-BluePink.png" alt="logo">
        
        <div class="homeContainer-desktop">
-        <img id ="main-img" src="../img/doggie.gif" alt="dog-friend">
+        <img id ="main-img" src="/src/img/doggie.gif" alt="dog-friend">
         </div>
         <div class="homeContainer-mobile">   
         <button id="start" class="appStartbtn btn">Ingresar</button>
-         <img id="mobileMain-img" src= "../img/Home-mobile.svg">
+         <img id="mobileMain-img" src= "/src/img/Home-mobile.svg">
          </div> `;
   // Variables
   const nav = document.getElementById('headerNav');
