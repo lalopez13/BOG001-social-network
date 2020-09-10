@@ -4,7 +4,7 @@ import signup from '../views/signup.js';
 import error from '../views/404.js';
 import dashboard from '../views/postDashboard.js';
 import profile from '../views/profile.js';
-import mainPage from '../views/mainPage.js'
+import mainPage from '../views/mainPage.js';
 
 const content = document.getElementById('root');
 
@@ -23,7 +23,7 @@ export const router = (route) => {
     case '#/profile':
       return content.appendChild(profile());
     case '#/mainPage':
-        return content.appendChild(mainPage());
+      return content.appendChild(mainPage());
     default:
       return content.appendChild(error());
   }

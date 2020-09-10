@@ -106,24 +106,24 @@ export default () => {
     }
   }
   // Reset de contraseña
-  function recoveryPassword () {
+  function recoveryPassword() {
     const email = document.getElementById('emailReset').value;
-    recoverPass (email);
+    recoverPass(email);
   }
   // Abre ventana popup para recuperar contraseña
-  function openPopup(){
+  function openPopup() {
     overlay.classList.add('active');
     popup.classList.add('active');
     msjEmailSend.style.display = 'none';
     btnresetPass.addEventListener('click', recoveryPassword);
   }
   // cierra ventana popup para recuperar contraseña
-  function closePopup(){
+  function closePopup() {
     overlay.classList.remove('active');
     popup.classList.remove('active');
   }
-  //Listeners
-  logInGoogle.addEventListener('click', createUserswithGoogle )
+  // Listeners
+  logInGoogle.addEventListener('click', createUserswithGoogle);
   eye.addEventListener('click', showHidePassword);
   resetPopUp.addEventListener('click', openPopup);
   btnClosePopup.addEventListener('click', closePopup);

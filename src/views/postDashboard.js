@@ -1,6 +1,15 @@
+
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-vars */
 import { userSignOff } from '../components/auth.js';
+import { previewFiles } from '../lib/previewFiles.js';
 import { createElementHTML } from '../lib/createElementPost.js';
-import { imageStorage, deletePostUserData, deletePostImageData, likePost } from '../components/database.js';
+import {
+  imageStorage,
+  deletePostUserData,
+  deletePostImageData,
+} from '../components/database.js';
 
 export default () => {
   const view = `
@@ -27,7 +36,7 @@ export default () => {
         <button id="mainPage"><i class="fas fa-home"></i></button>
         <button id="addPost"><i class="fas fa-plus-circle"></i></button>
         <button id="editUser"><i class="fas fa-user-edit"></i></button>
-        <button id="signOff"><i class='fas fa-sign-out-alt'></i></button>
+        <button id="signOff"><i class="fas fa-sign-out-alt"></i></button>
       </div>
     </div>
     <section class="board">
@@ -48,11 +57,11 @@ export default () => {
         </div>
         <br>
         <label class="upload-img-post">Sube tu imagen
-                <input type="file" name="postPreview" id="postPreview" >
+                <input type="file" name="postPreview" id="postPreview">
         </label>
       </div>
           <div class="infoPostUser">
-            <textarea type="text" id="description" rows="2" cols="100" maxlength="120" required></textarea></br>
+            <textarea type="text" id="description" rows="2" cols="100" maxlength="120"></textarea>
             <input type="submit" id="submit-post" value="submit" >
           </div>
         </form>
@@ -61,21 +70,22 @@ export default () => {
       </div>
       <!--MODAL DELETE-->
       <div class="modal-delete" id="modal">
-        <div class="modal-delete-container">
-          <div class="modal-delete-content">
-            <header class="delete-post-title">
-              <p> ¿Esta seguro de querer borrar la publicación? </p>
-            </header>
-            <div class="delete-post-content">
-              <p>Esta acción no se puede deshacer </p>
-            </div>
-            <div class="modal-delete-box-button">
-              <button class="cancel" id="cancel" class="btn-delete">Cancelar</button>
-             <button id="deletePost"  class="btn-delete delete-modal">Borrar</button>
-            </div>
-          </div>
+      <div class="modal-delete-container">
+      <div class="modal-delete-content">
+        <header class="delete-post-title">
+          <p> ¿Esta seguro de querer borrar la publicación? </p>
+        </header>
+        <div class="delete-post-content">
+          <p>Esta acción no se puede deshacer </p>
+        </div>
+        <div class="modal-delete-box-button">
+          <button class="cancel" id="cancel" class="btn-delete">Cancelar</button>
+          <button id="deletePost"  class="btn-delete delete-modal">Borrar</button>
         </div>
       </div>
+      
+    </div>
+</div>
      
       <!--Donde se muestran todos los post-->
       <div id="post-container"></div>
@@ -94,11 +104,13 @@ export default () => {
     </aside>
   </div>
 `;
+
   // VARIABLES
   const nav = document.getElementById('headerNav');
   nav.style.display = 'none';
   const divElement = document.createElement('div');
   divElement.innerHTML = view;
+
   // CAMPOS INFORMACION DEL HEADER DEL USUARIO
   const name = divElement.querySelector('#name');
   const city = divElement.querySelector('#city');
@@ -109,14 +121,21 @@ export default () => {
   const postForm = divElement.querySelector('#post-user');
   const postContainer = divElement.querySelector('#post-container');
   const postFormHeaderTitle = divElement.querySelector('#post-header-title');
-   // INPUT SUBIR FOTO DE POST
+  // const descriptionPostText = divElement.querySelector('#description');
+
+  // INPUT SUBIR FOTO DE POST
   const filePost = divElement.querySelector('#postPreview');
+  const imagePostPreview = divElement.querySelector('#postPreviewImage');
   const previewImage = divElement.querySelector('.post-preview-image');
   const defaultText = divElement.querySelector('.post-preview-text');
+  const labelFile = divElement.querySelector('.upload-img-post');
+
   // BOTONES
   const btnAddpost = divElement.querySelector('#addPost');
+  const btnViewProfile = divElement.querySelector('#editUser');
   const btnSingOff = divElement.querySelector('#signOff');
   const postSubmit = divElement.querySelector('#submit-post');
+
   // MODAL
   const modal = divElement.querySelector('#myModal');
   const span = divElement.getElementsByClassName('close')[0];
@@ -124,14 +143,25 @@ export default () => {
   const modalDelete = divElement.querySelector('.modal-delete');
   const cancelDeletePost = divElement.querySelector('.cancel');
   const deletePostBtnModal = divElement.querySelector('#deletePost');
-  // USER UID
+
+  // USER UID GUARDADO EN EL LOCAL STORAGE
   const getUserUid = JSON.parse(localStorage.getItem('usuario'));
   const uidUser = getUserUid.uid;
-  console.log(uidUser);
-  console.log(getUserUid.email);
+
   // VARIABLE EDITAR
   let editStatus = false;
+
+  // DECLARAR VARIABLES
+
+  // Mostrar la foto de perfil del usuario en el post
+  let urlProfileUser = '';
+  // Variables para almacenar la informacion del usuario y mostrarlo en cada post
+  let nameUser = '';
+  let cityUser = '';
+  // Variable para almacenar el id del post del usuario y poder actualizar ese post
   let idUser = '';
+
+
   // FUNCION MODAL
   cancelDeletePost.addEventListener('click', () => {
     modalDelete.classList.remove('modal-open');
@@ -140,6 +170,9 @@ export default () => {
   btnAddpost.addEventListener('click', () => {
     modal.style.display = 'block';
   });
+  btnViewProfile.addEventListener('click', () => {
+    window.location.hash = '#/profile';
+  })
   // CERRAR EL MODAL
   span.onclick = () => {
     modal.style.display = 'none';
@@ -152,26 +185,12 @@ export default () => {
       postForm.reset();
     }
   };
+
   // FUNCION PREVIEW IMAGEN POST
-  filePost.addEventListener('change', () => {
-    const file = filePost.files[0];
-    console.log(file);
-    if (file) {
-      const reader = new FileReader();
-      defaultText.style.display = 'none';
-      previewImage.style.display = 'block';
-      reader.addEventListener('load', () => {
-        previewImage.setAttribute('src', reader.result);
-      });
-      reader.readAsDataURL(file);
-    } else {
-      defaultText.style.display = null;
-      previewImage.style.display = null;
-      previewImage.setAttribute('src', '');
-    }
-  });
-  // MOSTRAR LA FOTO DE PERFIL DEL USUARIO
-  let urlProfileUser = '';
+  previewFiles(filePost, defaultText, previewImage);
+
+  // MOSTRAR EN EL HEAD LA INFORMACION DEL USUARIO
+
   function storage() {
     const storageRef = firebase
       .storage()
@@ -190,10 +209,6 @@ export default () => {
         console.log(error);
       });
   }
-  // MOSTRAR EN EL HEAD LA INFORMACION DEL USUARIO
-  // Variables para almacenar la informacion del usuario y mostrarlo en cada post
-  let nameUser = '';
-  let cityUser = '';
 
   function loadInfoUserHeader() {
     email.innerHTML = getUserUid.email;
@@ -225,6 +240,7 @@ export default () => {
         console.log('Error getting document:', error);
       });
   }
+  // LLAMAR LAS FUNCIONES
   storage();
   loadInfoUserHeader();
 
@@ -240,7 +256,6 @@ export default () => {
         description,
         date: firebase.firestore.Timestamp.fromDate(new Date()),
       })
-      // await addPostUserData(uidUser, { description })
       .then((postDoc) => {
         console.log('GUARDAR POST ');
         console.log(postDoc);
@@ -249,16 +264,13 @@ export default () => {
         const uploadImage = imageStorage(
           `user/${uidUser}/post/${postDoc.id}/`,
           postDoc.id,
-          file
+          file,
         );
-        // `${pathUserStorage}
-        // eslint-disable-next-line comma-dangle
         uploadImage.on(
           'state_changed',
           (snapshot) => {
             // Get task progress,
-            const progress =
-              (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
             console.log(`Upload is ${progress}% done`);
             switch (snapshot.state) {
               case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -292,7 +304,7 @@ export default () => {
             // Upload completed successfully, now we can get the download URL
             console.log('succesful');
             uploadImage.snapshot.ref.getDownloadURL().then((url) => {
-              console.log('BANANOS')
+              console.log('BANANOS');
               console.log(url);
               firebase
                 .firestore()
@@ -306,31 +318,52 @@ export default () => {
                   createPost(querySnapshot, url);
                 });
             });
-          }
+          },
         );
       });
   }
-
-  // EDITAR LOS POST DEL USUARIO
-  const editPost = (id) =>
-    firebase
-      .firestore()
-      .collection('user')
-      .doc(uidUser)
-      .collection('post')
-      .doc(id)
-      .get();
-
+  // POST FUNCTIONS
   // CONST UPDATE POST
-  const updatePost = (id, updatePost) =>
-    firebase
-      .firestore()
-      .collection('user')
-      .doc(uidUser)
-      .collection('post')
-      .doc(id)
-      .update(updatePost);
+  // eslint-disable-next-line no-shadow
+  const updatePost = (id, updatePost) => firebase
+    .firestore()
+    .collection('user')
+    .doc(uidUser)
+    .collection('post')
+    .doc(id)
+    .update(updatePost);
+  // BORRAR Y EDITAR POST
 
+  // Editar el contendio del post
+  function editContentPost(id) {
+    editStatus = true;
+    idUser = id;
+    modal.style.display = 'block';
+    postFormHeaderTitle.innerHTML = 'Editar post';
+    imagePostPreview.style.display = 'none';
+    labelFile.style.display = 'none';
+    postSubmit.value = 'Actualizar';
+  }
+
+  function editPostUs(div, update) {
+    div.innerHTML = update.value;
+  }
+  // BORRAR POST
+  function deleteContentPost(id) {
+    const postDiv = document.getElementById(id);
+    modalDelete.classList.add('modal-open');
+
+    deletePostBtnModal.addEventListener('click', (e) => {
+      console.log(e.target.dataset.id);
+      e.preventDefault();
+      deletePostUserData(uidUser, id);
+      deletePostImageData(`user/${uidUser}/post/${id}/${id}`);
+      modalDelete.classList.remove('modal-open');
+      console.log(postContainer);
+      postContainer.removeChild(postDiv);
+    });
+  }
+  // CREAR POST
   function createPost(postQ, url) {
     let text;
     console.log('empieza');
@@ -344,7 +377,7 @@ export default () => {
       },
       postContainer,
       '',
-      true
+      true,
     );
     // Modal confirmacion borrar post
     const deleteModalPost = createElementHTML(
@@ -353,7 +386,7 @@ export default () => {
         class: 'modal-delete',
         id: 'modal',
       },
-      postContainer
+      postContainer,
     );
 
     // Div contenedor top
@@ -362,7 +395,7 @@ export default () => {
       {
         class: 'soulmates-post-top',
       },
-      post
+      post,
     );
     // Div user info
     const UserImageProfileDiv = createElementHTML(
@@ -370,7 +403,7 @@ export default () => {
       {
         class: 'soulmates-post-avatar',
       },
-      topPostDiv
+      topPostDiv,
     );
     // Imagen de perfil
     const imgUserProfile = createElementHTML(
@@ -379,7 +412,7 @@ export default () => {
         class: 'post-header-avatar',
         src: urlProfileUser,
       },
-      UserImageProfileDiv
+      UserImageProfileDiv,
     );
     // Nombre Perfil
     const nameUserDiv = createElementHTML(
@@ -388,7 +421,7 @@ export default () => {
         class: 'soulmates-post-name',
       },
       topPostDiv,
-      nameUser
+      nameUser,
     );
     // Ciudad
     const cityUserDiv = createElementHTML(
@@ -397,7 +430,7 @@ export default () => {
         class: 'soulmates-post-title',
       },
       topPostDiv,
-      cityUser
+      cityUser,
     );
 
     // Body post
@@ -407,7 +440,7 @@ export default () => {
       {
         class: 'soulmates-post-image',
       },
-      post
+      post,
     );
     // Imagen post
     const imgPost = createElementHTML(
@@ -416,7 +449,7 @@ export default () => {
         class: 'post-image-avatar',
         src: url,
       },
-      postImageDiv
+      postImageDiv,
     );
 
     // Bottom post
@@ -425,7 +458,7 @@ export default () => {
       {
         class: 'soulmates-post-bottom',
       },
-      post
+      post,
     );
     // Descr post Div
     const descrPost = createElementHTML(
@@ -433,7 +466,7 @@ export default () => {
       {
         class: 'soulmates-post-desc',
       },
-      bottomPostDiv
+      bottomPostDiv,
     );
     // P element Descr
     const pDesc = createElementHTML(
@@ -443,7 +476,7 @@ export default () => {
         id: `${postQ.id}-desc`,
       },
       descrPost,
-      postQ.data().description
+      postQ.data().description,
     );
     // Icons post Div
     const IconPost = createElementHTML(
@@ -451,27 +484,31 @@ export default () => {
       {
         class: 'soulmates-post-icons',
       },
-      bottomPostDiv
+      bottomPostDiv,
     );
     // Span icons
     const iconSpan = createElementHTML(
       'span',
       {
         class: 'heart-counter',
-        id: 'countLikes'
       },
       IconPost,
-      '0'
+      '4',
     );
     // Button like incon
     const buttonLike = createElementHTML(
       'span',
       {
         id: 'like',
-        class: 'likes',
-        'data-id': postQ.id,
       },
-      IconPost
+      IconPost,
+    );
+    buttonLike.addEventListener(
+      'click',
+      () => {
+        likePost(postQ.id, iconSpan);
+      },
+      false,
     );
     // i element likes
     const iButtonLike = createElementHTML(
@@ -479,11 +516,11 @@ export default () => {
       {
         class: 'fas fa-heart',
       },
-      buttonLike
+      buttonLike,
     );
     // Span Me encanta
     const mencantaSpan = createElementHTML('span', {}, IconPost, 'Me encanta');
-    /*buttonLike.addEventListener('click', function () {
+    /* buttonLike.addEventListener('click', function () {
         const uidUser = firebase.auth().currentUser;
         let pushLike = post.likes.some(likes => likes === userid.uid);
         likePost(postQ.id,uidUser,pushLike);
@@ -494,7 +531,7 @@ export default () => {
         }
       },
       false
-    );*/
+    ); */
     // Edit button
     const editButton = createElementHTML(
       'button',
@@ -503,14 +540,14 @@ export default () => {
         'data-id': postQ.id,
       },
       IconPost,
-      'Editar'
+      'Editar',
     );
     editButton.addEventListener(
       'click',
-      function () {
-        editContentPost(postQ.id);
+      () => {
+        editContentPost(postQ.id, pDesc);
       },
-      false
+      false,
     );
     // Delete button
     const deleteButton = createElementHTML(
@@ -520,42 +557,21 @@ export default () => {
         'data-id': postQ.id,
       },
       IconPost,
-      'Borrar'
+      'Borrar',
     );
     deleteButton.addEventListener(
       'click',
       () => {
         deleteContentPost(postQ.id);
       },
-      false
+      false,
     );
     console.log('Termina');
   }
 
-  //BORRAR Y EDITAR POST
-
-  function editContentPost(id) {
-    console.log(id + 'nueva funcion boton modal');
-    modal.style.display = 'block';
-  }
-// BORRAR POST 
-  function deleteContentPost(id) {
-    const postDiv = document.getElementById(id);
-    console.log(postDiv);
-    console.log( id + " "+ "="  +" " + "rNDtPUT6pdmhn1twAkkb")
-    console.log(typeof id)
-    modalDelete.classList.add('modal-open');
-    console.log(id + 'eliminar boton modal');
-
-    deletePostBtnModal.addEventListener('click', (e) => {
-      console.log(e.target.dataset.id);
-      e.preventDefault();
-      deletePostUserData(uidUser, id);
-      deletePostImageData(`user/${uidUser}/post/${id}/${id}`);
-      modalDelete.classList.remove('modal-open');
-      console.log(postContainer)
-      postContainer.removeChild(postDiv);
-    });
+  function likePost(id, counter) {
+    console.log(`${id}like`);
+    console.log(counter);
   }
 
   // FUNCION PARA MOSTRAR POST EN EL MURO DE PUBLICACION
@@ -574,7 +590,7 @@ export default () => {
           firebase
             .storage()
             .ref(
-              `user/${uidUser}/post/${postQ.id}/${postQ.id}`
+              `user/${uidUser}/post/${postQ.id}/${postQ.id}`,
             )
             .getDownloadURL()
             .then((url) => {
@@ -582,7 +598,7 @@ export default () => {
             });
         });
       });
-    //});
+    // });
   }
 
   loadPost();
@@ -590,6 +606,8 @@ export default () => {
   postForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const description = postForm.description;
+    const paragraphBox = document.getElementById(`${idUser}-desc`);
+    console.log(paragraphBox);
 
     if (!editStatus) {
       await savePostInfo(description.value);
@@ -597,11 +615,15 @@ export default () => {
       updatePost(idUser, {
         description: description.value,
       });
+      editPostUs(paragraphBox, description);
       editStatus = false;
       idUser = '';
       postSubmit.value = 'Guardar';
     }
+    postFormHeaderTitle.innerHTML = 'Crear post';
+    labelFile.style.display = 'block';
     previewImage.style.display = 'none';
+    imagePostPreview.style.display = 'block';
     postForm.reset();
   });
 

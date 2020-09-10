@@ -1,5 +1,5 @@
 export default () => {
-    const view = `
+  const view = `
       <!--HEADER INFORMACION DEL USUARIO-->
       <div class="dashboard">
         <div id="user-header">
@@ -25,25 +25,21 @@ export default () => {
             <button id="editUser"><i class="far fa-user"></i></button>
             <button id="signOff"><i class='fas fa-sign-out-alt'></i></button>
           </div>
-        </div>`;
-  
-  
-    const divElement = document.createElement('div');
-    divElement.innerHTML = view;
-    const nav = document.getElementById('headerNav');
-    nav.style.display = 'none';
-  
-  
-    firebase.firestore().collectionGroup('user').onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
-    firebase.firestore().collectionGroup('post').onSnapshot((querySnapshot) => {
-      querySnapshot.forEach((doc) => {
-        console.log(doc.data());
+        </div>`;  
+        
+  const divElement = document.createElement('div');
+  divElement.innerHTML = view;
+  const nav = document.getElementById('headerNav');
+  nav.style.display = 'none';
+  firebase.firestore().collectionGroup('user').onSnapshot((querySnapshot) => {
+    querySnapshot.forEach((doc) => {
+      console.log(doc.data());
+      firebase.firestore().collectionGroup('post').onSnapshot((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          console.log(doc.data());
+        });
       });
     });
-  
-      });
-    });
-    return divElement;
-  };
+  });
+  return divElement;
+};

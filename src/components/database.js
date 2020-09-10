@@ -64,7 +64,8 @@ export function deletePostUserData(uid, idPost) {
       console.log('Error removing document: ', error);
     });
 }
-// Aumenta el contador de Likes
+
+/* Aumenta el contador de Likes
 export async function likePost(currentUserId, postId, pushLike) {
   const postRef = data.collection('post').doc(postId);
   if (pushLike) {
@@ -76,7 +77,7 @@ export async function likePost(currentUserId, postId, pushLike) {
       likes: firebase.firestore.FieldValue.arrayUnion(currentUserId),
     });
   }
-}
+}*/
 // ------------------------STORAGE---------------------------------
 // Crear folder y guardar las imagenes
 export function imageStorage(folder, id, file) {

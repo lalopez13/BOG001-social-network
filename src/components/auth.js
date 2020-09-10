@@ -56,11 +56,24 @@ export const createUsers = (email, password) => {
 // Crear un usuario con google
 export const createUserswithGoogle = () => {
   auth
+    .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+    .then(() => {
+      window.location.hash = '#/profile';
+      console.log('google user');
+      addUsersData(User, id);
+    })
+    .catch((error) => {
+      console.log(`error google ${error}`);
+    });
+};
+// login un usuario con google
+export const loginUserswithGoogle = () => {
+  fireabse.auth()
     .signInWithPopup(provider)
     .then(() => {
-      // This gives you a Google Access Token. You can use it to access the Google API.
       window.location.hash = '#/dashboard';
       console.log('google user');
+      addUsersData(User, id);
     })
     .catch((error) => {
       console.log(`error google ${error}`);

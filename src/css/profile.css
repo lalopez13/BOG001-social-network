@@ -74,15 +74,19 @@ transform: translateY(50px);
 }
 
 .btn-profile {
+  margin-top: 10px;
   margin-bottom: 15%;
   border-radius: 15px;
   padding: 5px;
   width: 100px;
-  background: #ff7851;
+  background:var(--color-pink);
   border: none;
   color: white;
 }
-
+small.message-alert {
+  font-family: 'Roboto', sans-serif;
+  color:rgb(255, 81, 0);
+}
 /*image preview */
 .image-preview {
   margin: auto;
@@ -157,7 +161,8 @@ label#terminos {
   }
 
   .form-user {
-    background:url(../img/S1_Breakfast.jpg);
+    background:url(../img/S1_Breakfast.jpg) no-repeat;
+    background-position: bottom;
     transform: translateX(10px);
     display: block;
     justify-content: center;
@@ -194,7 +199,8 @@ label#terminos {
 @media screen and (max-width:425px) {
 
   .form-user {
-    background-size: 230%;
+    background: url(../img/profile-mobile.jpg) no-repeat;
+    /* background-size: 160%; */
 }
   .pet-form label,
   h2 {
@@ -204,4 +210,7 @@ label#terminos {
   label#terminos {
     font-size: 8px;
   }
+  small.message-alert {
+    font-size: x-small;
+}
 }

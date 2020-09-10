@@ -38,7 +38,7 @@ export default () => {
                       </div>
                     </i>
                     <input class="passSignUp" type="password" placeholder="***********" pattern=".{8,}" required>
-                    <i class="far fa-eye eye"></i>
+                    <i class="far fa-eye eye" id="eye" ></i>
                     <span id="messagePassSU" class="messagePassSU"></span>
                     </label>
                     <input class="btn" type="submit" value="SIGN IN">
@@ -90,7 +90,7 @@ export default () => {
   divElement.classList = 'SingUp-Container';
   divElement.innerHTML = view;
   const boton = divElement.querySelector('.btn');
-  const eye = divElement.querySelectorAll('.eye');
+  const eye = divElement.querySelector('#eye');
   const btnGoogle = divElement.querySelector('.btnGoogle');
   const btnClosePopup = divElement.querySelector('#btn-close-popup');
   nav.style.display = 'none';
@@ -99,7 +99,7 @@ export default () => {
   function createNewUsers() {
     let warningAuth = '';
     let warningAuthPass = '';
-    const signUpForm = document.querySelector('#form')
+    const signUpForm = document.querySelector('#form');
     const email = document.querySelector('.emailSignUp').value;
     const password = document.querySelector('.passSignUp').value;
     const valEmail = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
@@ -115,7 +115,7 @@ export default () => {
     // VALIDAR CONSTRASEÑA
     const valPass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{8,15}$/;
     if (!valPass.test(password)) {
-      warningAuthPass += 'Contraseña no cumple con los criterios minimos' ;
+      warningAuthPass += 'Contraseña no cumple con los criterios minimos';
       messagePass.innerHTML = warningAuthPass;
       enterLogin = false;
     }
@@ -125,7 +125,7 @@ export default () => {
       signUpForm.reset();
       messageEmail.innerHTML = '';
       messagePass.innerHTML = '';
-    }   
+    }
   }
   // Funcion mostrar y ocultar contraseña
   function showHidePassword() {
@@ -138,13 +138,13 @@ export default () => {
   }
   // cierra ventana popup envio correo validación
   function closePopup() {
+    const overlay = document.querySelector('#overlay');
+    const popup = document.querySelector('#popup');
     overlay.classList.remove('active');
     popup.classList.remove('active');
   }
   // Listener
-  for (let i = 0; i < eye.length; i++) {
-    eye[i].addEventListener('click', showHidePassword);
-  }
+  eye.addEventListener('click', showHidePassword);
   boton.addEventListener('click', createNewUsers);
   btnGoogle.addEventListener('click', createUserswithGoogle);
   btnClosePopup.addEventListener('click', closePopup);
